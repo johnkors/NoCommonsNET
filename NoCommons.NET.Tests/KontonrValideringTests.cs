@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NoCommons.Banking;
+using NUnit.Framework;
 using NoCommons.Common;
 
-namespace NoCommons.Tests
+namespace NoCommons.Banking.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class KontonrValideringTests
     {
         private const string KONTONUMMER_VALID = "99990000006";
         private const string KONTONUMMER_INVALID_CHECKSUM = "99990000005";
 
-        [TestMethod]
+        [Test]
         public void TestInvalidKontonummerWrongLength()
         {
             try
@@ -26,7 +25,7 @@ namespace NoCommons.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestInvalidKontonummerNotDigits()
         {
             try
@@ -40,7 +39,7 @@ namespace NoCommons.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestInvalidKontonummerWrongChecksum()
         {
             try
@@ -54,7 +53,7 @@ namespace NoCommons.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestInvalidAccountTypeWrongLength()
         {
             var b = new StringBuilder(KontonummerValidator.ACCOUNTTYPE_NUM_DIGITS + 1);
@@ -73,7 +72,7 @@ namespace NoCommons.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestInvalidAccountTypeNotDigits()
         {
             var b = new StringBuilder(KontonummerValidator.ACCOUNTTYPE_NUM_DIGITS);
@@ -92,7 +91,7 @@ namespace NoCommons.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestInvalidRegisternummerNotDigits()
         {
             var b = new StringBuilder(KontonummerValidator.REGISTERNUMMER_NUM_DIGITS);
@@ -111,7 +110,7 @@ namespace NoCommons.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestInvalidRegisternummerWrongLength()
         {
             var b = new StringBuilder(KontonummerValidator.REGISTERNUMMER_NUM_DIGITS + 1);
@@ -130,31 +129,28 @@ namespace NoCommons.Tests
             }
         }
 
-        [TestMethod]
+        [Test]
         public void TestGetValidKontonummerFromInvalidKontonummerWrongChecksum()
         {
             Kontonummer knr = KontonummerValidator.GetAndForceValidKontonummer(KONTONUMMER_INVALID_CHECKSUM);
             Assert.IsTrue(KontonummerValidator.IsValid(knr.ToString()));
         }
 
-        [TestMethod]
+        [Test]
         public void TestIsValid()
         {
             Assert.IsTrue(KontonummerValidator.IsValid(KONTONUMMER_VALID));
             Assert.IsFalse(KontonummerValidator.IsValid(KONTONUMMER_INVALID_CHECKSUM));
         }
 
-        [TestMethod]
-        public void TestValidNumberEndingOn9()
+        [TestCase("97104133219")]
+        [TestCase("97105302049")]
+        [TestCase("97104008309")]
+        [TestCase("97102749069")]
+        public void TestValidNumberEndingOn9(string kontonrEndingOn9)
         {
-            Assert.IsTrue(KontonummerValidator.IsValid("97104133219"));
-            Assert.IsTrue(KontonummerValidator.IsValid("97105302049"));
-            Assert.IsTrue(KontonummerValidator.IsValid("97104008309"));
-            Assert.IsTrue(KontonummerValidator.IsValid("97102749069"));
+            Assert.IsTrue(KontonummerValidator.IsValid(kontonrEndingOn9));
         }
-
-
-
 
         private static void AssertMessageContains(ArgumentException argumentException, string errorSyntax)
         {
@@ -164,27 +160,5 @@ namespace NoCommons.Tests
 
 
         
-    }
-    
-    [TestClass]
-    public class IbanValidationTests
-    {
-
-        /// http://www.ecbs.org/iban.htm
-        [TestMethod]
-        public void TestValidNorwegianIban()
-        {
-            var validIbanValue = "NO9386011117947";
-            Assert.IsTrue(IbanValidator.IsValid(validIbanValue));
-        }
-
-        [TestMethod]
-        public void TestValidSpanishIban()
-        {
-            var validSpanishIban = "ES9121000418450200051332";
-            Assert.IsTrue(IbanValidator.IsValid(validSpanishIban));
-        }
-
-            
     }
 }
