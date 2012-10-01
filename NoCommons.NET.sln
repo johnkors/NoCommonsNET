@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons", "NoCommons.NET\NoCommons.csproj", "{18E7F5EE-B399-4A78-8A2E-694D5F84674C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons.Tests", "NoCommons.NET.Tests\NoCommons.Tests.csproj", "{31CC9124-A7CF-427C-95D9-E06651E7846F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18E7F5EE-B399-4A78-8A2E-694D5F84674C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18E7F5EE-B399-4A78-8A2E-694D5F84674C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18E7F5EE-B399-4A78-8A2E-694D5F84674C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18E7F5EE-B399-4A78-8A2E-694D5F84674C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31CC9124-A7CF-427C-95D9-E06651E7846F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31CC9124-A7CF-427C-95D9-E06651E7846F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31CC9124-A7CF-427C-95D9-E06651E7846F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31CC9124-A7CF-427C-95D9-E06651E7846F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
