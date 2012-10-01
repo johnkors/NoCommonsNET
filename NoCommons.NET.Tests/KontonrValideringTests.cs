@@ -154,6 +154,22 @@ namespace NoCommons.Tests
         }
 
 
+
+
+        private static void AssertMessageContains(ArgumentException argumentException, string errorSyntax)
+        {
+            bool containsText = argumentException.Message.Contains(errorSyntax);
+            Assert.IsTrue(containsText);
+        }
+
+
+        
+    }
+    
+    [TestClass]
+    public class IbanValidationTests
+    {
+
         /// http://www.ecbs.org/iban.htm
         [TestMethod]
         public void TestValidNorwegianIban()
@@ -169,12 +185,6 @@ namespace NoCommons.Tests
             Assert.IsTrue(IbanValidator.IsValid(validSpanishIban));
         }
 
-
-        private static void AssertMessageContains(ArgumentException argumentException, string errorSyntax)
-        {
-            bool containsText = argumentException.Message.Contains(errorSyntax);
-            Assert.IsTrue(containsText);
-        }
-
+            
     }
 }
