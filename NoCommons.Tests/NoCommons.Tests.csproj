@@ -52,7 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NoCommons.NET\NoCommons.csproj">
+    <ProjectReference Include="..\NoCommons\NoCommons.csproj">
       <Project>{18E7F5EE-B399-4A78-8A2E-694D5F84674C}</Project>
       <Name>NoCommons</Name>
     </ProjectReference>
