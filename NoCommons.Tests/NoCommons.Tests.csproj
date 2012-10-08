@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="IbanValidationTests.cs" />
     <Compile Include="KontonrValideringTests.cs" />
+    <Compile Include="KontonummerCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

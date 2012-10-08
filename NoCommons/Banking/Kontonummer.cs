@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using NoCommons.Common;
 
 namespace NoCommons.Banking
@@ -10,27 +9,27 @@ namespace NoCommons.Banking
             
         }
 
-        public string getRegisternummer() {
+        public string GetRegisternummer() {
             return GetValue().Substring(0, 4);
         }
 
-        public string getAccountType() {
-            return GetValue().Substring(4, 6);
+        public string GetAccountType() {
+            return GetValue().Substring(4, 2);
         }
 
         public string getKonto() {
-            return GetValue().Substring(4, 10);
+            return GetValue().Substring(4, 6);
         }
 
-        public string getGroupedValue() {
+        public string GetGroupedValue() {
             var sb = new StringBuilder();
-            sb.Append(getRegisternummer()).Append(Constants.DOT);
-            sb.Append(getAccountType()).Append(Constants.DOT);
-            sb.Append(getPartAfterAccountType());
+            sb.Append(GetRegisternummer()).Append(Constants.DOT);
+            sb.Append(GetAccountType()).Append(Constants.DOT);
+            sb.Append(GetPartAfterAccountType());
             return sb.ToString();
         }
 
-        private string getPartAfterAccountType() {
+        private string GetPartAfterAccountType() {
             return GetValue().Substring(6);
         }
 
