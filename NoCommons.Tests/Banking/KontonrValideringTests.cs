@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Text;
 using NUnit.Framework;
+using NoCommons.Banking;
 using NoCommons.Common;
 
-namespace NoCommons.Banking.Tests
+namespace NoCommons.Tests.Banking
 {
     [TestFixture]
     public class KontonrValideringTests
@@ -21,7 +22,7 @@ namespace NoCommons.Banking.Tests
             }
             catch (ArgumentException e)
             {
-                AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
+                AssertionUtils.AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
             }
         }
 
@@ -35,7 +36,7 @@ namespace NoCommons.Banking.Tests
             }
             catch (ArgumentException e)
             {
-                AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
+                AssertionUtils.AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
             }
         }
 
@@ -49,7 +50,7 @@ namespace NoCommons.Banking.Tests
             }
             catch (ArgumentException e)
             {
-                AssertMessageContains(e, StringNumberValidator.ERROR_INVALID_CHECKSUM);
+                AssertionUtils.AssertMessageContains(e, StringNumberValidator.ERROR_INVALID_CHECKSUM);
             }
         }
 
@@ -68,7 +69,7 @@ namespace NoCommons.Banking.Tests
             }
             catch (ArgumentException e)
             {
-                AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
+                AssertionUtils.AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
             }
         }
 
@@ -87,7 +88,7 @@ namespace NoCommons.Banking.Tests
             }
             catch (ArgumentException e)
             {
-                AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
+                AssertionUtils.AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
             }
         }
 
@@ -106,7 +107,7 @@ namespace NoCommons.Banking.Tests
             }
             catch (ArgumentException e)
             {
-                AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
+                AssertionUtils.AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
             }
         }
 
@@ -125,7 +126,7 @@ namespace NoCommons.Banking.Tests
             }
             catch (ArgumentException e)
             {
-                AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
+                AssertionUtils.AssertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
             }
         }
 
@@ -151,14 +152,5 @@ namespace NoCommons.Banking.Tests
         {
             Assert.IsTrue(KontonummerValidator.IsValid(kontonrEndingOn9));
         }
-
-        private static void AssertMessageContains(ArgumentException argumentException, string errorSyntax)
-        {
-            bool containsText = argumentException.Message.Contains(errorSyntax);
-            Assert.IsTrue(containsText);
-        }
-
-
-        
     }
 }

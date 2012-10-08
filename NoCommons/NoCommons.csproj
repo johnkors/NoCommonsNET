@@ -40,16 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banking\Kidnummer.cs" />
+    <Compile Include="Banking\KontonummerCalculator.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Banking\IbanValidator.cs" />
     <Compile Include="Banking\Kontonummer.cs" />
     <Compile Include="Banking\KontonummerValidator.cs" />
     <Compile Include="Common\StringNumber.cs" />
     <Compile Include="Common\StringNumberValidator.cs" />
+    <Compile Include="Person\Fodselsnummer.cs" />
+    <Compile Include="Person\FodselsnummerCalculator.cs" />
+    <Compile Include="Person\FodselsnummerValidator.cs" />
+    <Compile Include="Person\KJONN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NoCommons.nuspec" />
+    <None Include="NoCommons.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
