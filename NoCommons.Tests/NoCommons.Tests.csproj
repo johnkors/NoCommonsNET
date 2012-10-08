@@ -9,8 +9,8 @@
     <ProjectGuid>{31CC9124-A7CF-427C-95D9-E06651E7846F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NoCommons.NET.Tests</RootNamespace>
-    <AssemblyName>NoCommons.NET.Tests</AssemblyName>
+    <RootNamespace>NoCommons.Tests</RootNamespace>
+    <AssemblyName>NoCommons.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IbanValidationTests.cs" />
+    <Compile Include="KidnummerValidatorTests.cs" />
     <Compile Include="KontonrValideringTests.cs" />
     <Compile Include="KontonummerCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

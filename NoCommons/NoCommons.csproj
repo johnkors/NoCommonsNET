@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banking\Kidnummer.cs" />
     <Compile Include="Banking\KontonummerCalculator.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Banking\IbanValidator.cs" />

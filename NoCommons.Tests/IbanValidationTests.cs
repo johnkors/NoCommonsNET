@@ -1,6 +1,7 @@
 using NUnit.Framework;
+using NoCommons.Banking;
 
-namespace NoCommons.Banking.Tests
+namespace NoCommons.Tests.Banking
 {
     [TestFixture]
     public class IbanValidationTests

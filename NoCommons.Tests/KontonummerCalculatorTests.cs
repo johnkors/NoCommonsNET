@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using NoCommons.Banking;
 
-namespace NoCommons.NET.Tests
+namespace NoCommons.Tests.Banking
 {
+    [TestFixture]
     public class KontonummerCalculatorTests
     {
         private const int LIST_LENGTH = 100;
@@ -13,7 +13,7 @@ namespace NoCommons.NET.Tests
         [Test]
         public void testGetKontonummerList()
         {
-            List<Kontonummer> options = KontonummerCalculator.GetKontonummerList(LIST_LENGTH);
+            var options = KontonummerCalculator.GetKontonummerList(LIST_LENGTH);
             Assert.AreEqual(LIST_LENGTH, options.Count);
             foreach (Kontonummer k in options)
             {
@@ -24,7 +24,7 @@ namespace NoCommons.NET.Tests
         [Test]
         public void testGetKontonummerListForAccountType()
         {
-            List<Kontonummer> options = KontonummerCalculator.GetKontonummerListForAccountType(TEST_ACCOUNT_TYPE, LIST_LENGTH);
+            var options = KontonummerCalculator.GetKontonummerListForAccountType(TEST_ACCOUNT_TYPE, LIST_LENGTH);
             Assert.AreEqual(LIST_LENGTH, options.Count);
             foreach (Kontonummer option in options)
             {
@@ -36,7 +36,7 @@ namespace NoCommons.NET.Tests
         [Test]
         public void testGetKontonummerListForRegisternummer()
         {
-            List<Kontonummer> options = KontonummerCalculator.GetKontonummerListForRegisternummer(TEST_REGISTERNUMMER, LIST_LENGTH);
+            var options = KontonummerCalculator.GetKontonummerListForRegisternummer(TEST_REGISTERNUMMER, LIST_LENGTH);
             Assert.AreEqual(LIST_LENGTH, options.Count);
             foreach (Kontonummer option in options)
             {
@@ -46,4 +46,6 @@ namespace NoCommons.NET.Tests
             }
         }
     }
+
+
 }

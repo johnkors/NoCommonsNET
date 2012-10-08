@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Text;
 using NUnit.Framework;
+using NoCommons.Banking;
 using NoCommons.Common;
 
-namespace NoCommons.Banking.Tests
+namespace NoCommons.Tests.Banking
 {
     [TestFixture]
     public class KontonrValideringTests
