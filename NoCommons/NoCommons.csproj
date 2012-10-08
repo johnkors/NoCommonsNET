@@ -48,6 +48,10 @@
     <Compile Include="Banking\KontonummerValidator.cs" />
     <Compile Include="Common\StringNumber.cs" />
     <Compile Include="Common\StringNumberValidator.cs" />
+    <Compile Include="Person\Fodselsnummer.cs" />
+    <Compile Include="Person\FodselsnummerCalculator.cs" />
+    <Compile Include="Person\FodselsnummerValidator.cs" />
+    <Compile Include="Person\KJONN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

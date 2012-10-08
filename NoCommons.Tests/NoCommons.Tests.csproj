@@ -47,10 +47,14 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IbanValidationTests.cs" />
-    <Compile Include="KidnummerValidatorTests.cs" />
-    <Compile Include="KontonrValideringTests.cs" />
-    <Compile Include="KontonummerCalculatorTests.cs" />
+    <Compile Include="AssertionUtils.cs" />
+    <Compile Include="Banking\IbanValidationTests.cs" />
+    <Compile Include="Banking\KidnummerValidatorTests.cs" />
+    <Compile Include="Banking\KontonrValideringTests.cs" />
+    <Compile Include="Banking\KontonummerCalculatorTests.cs" />
+    <Compile Include="Person\FodselsnummerCalculatorTests.cs" />
+    <Compile Include="Person\FodselsnummerTests.cs" />
+    <Compile Include="Person\FodselsnummerValidatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
