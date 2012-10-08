@@ -9,8 +9,8 @@
     <projectUrl>https://github.com/bekkopen/NoCommonsNET</projectUrl>    
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Norwegian account validator and IBAN validator added</releaseNotes>
+    <releaseNotes>KID-validator. Norwegian fodselsnummer validator and calculator.</releaseNotes>
     <copyright>Copyright 2012</copyright>
-    <tags>norway norwegian konto bank validation accounting account</tags>
+    <tags>norway norwegian konto bank validation accounting account fodselsnummer </tags>
   </metadata>
 </package>
