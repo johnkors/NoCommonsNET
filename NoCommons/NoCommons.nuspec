@@ -9,8 +9,8 @@
     <projectUrl>https://github.com/bekkopen/NoCommonsNET</projectUrl>    
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>KID-validator. Norwegian fodselsnummer validator and calculator.</releaseNotes>
-    <copyright>Copyright 2012</copyright>
-    <tags>norway norwegian konto bank validation accounting account fodselsnummer </tags>
+    <releaseNotes>Organisasjonsnummer validator and calculator</releaseNotes>
+    <copyright>Copyright BEKK Open 2012</copyright>
+    <tags>norway norwegian kontonummer fodselsnummer kidnummer organisasjonsnummer validation generators calculator</tags>
   </metadata>
 </package>
