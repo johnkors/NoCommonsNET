@@ -17,7 +17,7 @@ namespace NoCommons.Banking
             return GetValue().Substring(4, 2);
         }
 
-        public string getKonto() {
+        public string GetKonto() {
             return GetValue().Substring(4, 6);
         }
 

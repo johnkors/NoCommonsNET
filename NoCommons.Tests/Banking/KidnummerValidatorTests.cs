@@ -22,7 +22,7 @@ namespace NoCommons.Tests.Banking
         [Test]
         public void testInvalidKidnummer() {
             try {
-                KidnummerValidator.validateSyntax("");
+                KidnummerValidator.ValidateSyntax("");
                 Assert.Fail();
             } catch (ArgumentException e) {
                 assertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
@@ -32,7 +32,7 @@ namespace NoCommons.Tests.Banking
         [Test]
         public void testInvalidKidnummerNotDigits() {
             try {
-                KidnummerValidator.validateSyntax("abcdefghijk");
+                KidnummerValidator.ValidateSyntax("abcdefghijk");
                 Assert.Fail();
             } catch (ArgumentException e) {
                 assertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
@@ -42,7 +42,7 @@ namespace NoCommons.Tests.Banking
         [Test]
         public void testInvalidKidnummerTooShort() {
             try {
-                KidnummerValidator.validateSyntax(KIDNUMMER_INVALID_LENGTH_SHORT);
+                KidnummerValidator.ValidateSyntax(KIDNUMMER_INVALID_LENGTH_SHORT);
                 Assert.Fail();
             } catch (ArgumentException e) {
                 assertMessageContains(e, KidnummerValidator.ERROR_LENGTH);
@@ -52,7 +52,7 @@ namespace NoCommons.Tests.Banking
         [Test]
         public void testInvalidKidnummerTooLong() {
             try {
-                KidnummerValidator.validateSyntax(KIDNUMMER_INVALID_LENGTH_LONG);
+                KidnummerValidator.ValidateSyntax(KIDNUMMER_INVALID_LENGTH_LONG);
                 Assert.Fail();
             } catch (ArgumentException e) {
                 assertMessageContains(e, KidnummerValidator.ERROR_LENGTH);
@@ -62,7 +62,7 @@ namespace NoCommons.Tests.Banking
         [Test]
         public void testInvalidKidnummerWrongChecksum() {
             try {
-                KidnummerValidator.validateChecksum(KIDNUMMER_INVALID_CHECKSUM);
+                KidnummerValidator.ValidateChecksum(KIDNUMMER_INVALID_CHECKSUM);
                 Assert.Fail();
             } catch (ArgumentException e) {
                 assertMessageContains(e, StringNumberValidator.ERROR_INVALID_CHECKSUM);

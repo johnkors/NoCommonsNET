@@ -36,19 +36,19 @@ namespace NoCommons.Banking
 		    return new Kontonummer(kontonummer);
 	    }
 
-        public static void ValidateSyntax(string kontonummer) {
+        internal static void ValidateSyntax(string kontonummer) {
 		    ValidateLengthAndAllDigits(kontonummer, LENGTH);
 	    }
 
-        public static void ValidateAccountTypeSyntax(string accountType) {
+        internal static void ValidateAccountTypeSyntax(string accountType) {
 		    ValidateLengthAndAllDigits(accountType, ACCOUNTTYPE_NUM_DIGITS);
 	    }
 
-        public static void ValidateRegisternummerSyntax(string registernummer) {
+        internal static void ValidateRegisternummerSyntax(string registernummer) {
 		    ValidateLengthAndAllDigits(registernummer, REGISTERNUMMER_NUM_DIGITS);
 	    }
 
-        public static void ValidateChecksum(string kontonummer) {
+        internal static void ValidateChecksum(string kontonummer) {
 		    var k = new Kontonummer(kontonummer);
 		    int k1 = CalculateMod11CheckSum(GetMod11Weights(k), k);
 		    if (k1 != k.GetChecksumDigit()) {
