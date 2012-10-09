@@ -4,93 +4,9 @@ using System.Text;
 
 namespace NoCommons.Banking
 {
-    internal abstract class KontonummerDigitGenerator
-    {
-        protected const int REGISTERNUMMER_START_DIGIT = 0;
-        protected const int LENGTH = 11;
-        internal abstract string GenerateKontonummer();
-    }
-
-    internal class AccountTypeKontonrDigitGenerator : KontonummerDigitGenerator
-    {
-        private const int ACCOUNTTYPE_START_DIGIT = 4;
-
-        private readonly string accountType;
-
-        internal AccountTypeKontonrDigitGenerator(String accountType)
-        {
-            this.accountType = accountType;
-        }
-
-        internal override string GenerateKontonummer()
-        {
-            var kontonrBuffer = new StringBuilder(LENGTH);
-            for (int i = 0; i < LENGTH;)
-            {
-                if (i == ACCOUNTTYPE_START_DIGIT)
-                {
-                    kontonrBuffer.Append(accountType);
-                    i += accountType.Length;
-                }
-                else
-                {
-                    var randomNum = new Random();
-                    var ran = randomNum.Next(0, 10);
-                    kontonrBuffer.Append(ran);
-                    i++;
-                }
-            }
-            return kontonrBuffer.ToString();
-        }
-    }
-
-    internal class RegisternummerKontonrDigitGenerator : KontonummerDigitGenerator
-    {
-        private readonly string registerNr;
-
-        internal RegisternummerKontonrDigitGenerator(String registerNr)
-        {
-            this.registerNr = registerNr;
-        }
-
-
-        internal override string GenerateKontonummer()
-        {
-            var kontonrBuffer = new StringBuilder(LENGTH);
-            for (int i = 0; i < LENGTH;)
-            {
-                if (i == REGISTERNUMMER_START_DIGIT)
-                {
-                    kontonrBuffer.Append(registerNr);
-                    i += registerNr.Length;
-                }
-                else
-                {
-                    var rand = new Random();
-                    var ran = rand.Next(0, 10);
-                    kontonrBuffer.Append(ran);
-                    i++;
-                }
-            }
-            return kontonrBuffer.ToString();
-        }
-    }
-
-    internal class NormalKontonrDigitGenerator : KontonummerDigitGenerator
-    {
-        internal override string GenerateKontonummer()
-        {
-            var kontonrBuffer = new StringBuilder(LENGTH);
-            for (int i = 0; i < LENGTH; i++)
-            {
-                var random = new Random();
-                var ran = random.Next(0, 10);
-                kontonrBuffer.Append(ran);
-            }
-            return kontonrBuffer.ToString();
-        }
-    }
-
+    /**
+     * This class calculates valid Kontonummer instances.
+     */
     public class KontonummerCalculator
     {
         private static List<Kontonummer> GetKontonummerListUsingGenerator(KontonummerDigitGenerator generator, int length)
@@ -146,7 +62,7 @@ namespace NoCommons.Banking
 	     *            returned List
 	     * @return A List with Kontonummer instances
 	     */
-        public static List<Kontonummer> GetKontonummerListForRegisternummer(String registernummer, int length)
+        public static List<Kontonummer> GetKontonummerListForRegisternummer(string registernummer, int length)
         {
             KontonummerValidator.ValidateRegisternummerSyntax(registernummer);
 
@@ -168,4 +84,92 @@ namespace NoCommons.Banking
             return GetKontonummerListUsingGenerator(new NormalKontonrDigitGenerator(), length);
         }
     }
+
+    internal abstract class KontonummerDigitGenerator
+    {
+        protected const int REGISTERNUMMER_START_DIGIT = 0;
+        protected const int LENGTH = 11;
+        internal abstract string GenerateKontonummer();
+    }
+
+    internal class AccountTypeKontonrDigitGenerator : KontonummerDigitGenerator
+    {
+        private const int ACCOUNTTYPE_START_DIGIT = 4;
+
+        private readonly string _accountType;
+
+        internal AccountTypeKontonrDigitGenerator(String accountType)
+        {
+            _accountType = accountType;
+        }
+
+        internal override string GenerateKontonummer()
+        {
+            var kontonrBuffer = new StringBuilder(LENGTH);
+            for (var i = 0; i < LENGTH; )
+            {
+                if (i == ACCOUNTTYPE_START_DIGIT)
+                {
+                    kontonrBuffer.Append(_accountType);
+                    i += _accountType.Length;
+                }
+                else
+                {
+                    var randomNum = new Random();
+                    var ran = randomNum.Next(0, 10);
+                    kontonrBuffer.Append(ran);
+                    i++;
+                }
+            }
+            return kontonrBuffer.ToString();
+        }
+    }
+
+    internal class RegisternummerKontonrDigitGenerator : KontonummerDigitGenerator
+    {
+        private readonly string _registerNr;
+
+        internal RegisternummerKontonrDigitGenerator(String registerNr)
+        {
+            _registerNr = registerNr;
+        }
+
+
+        internal override string GenerateKontonummer()
+        {
+            var kontonrBuffer = new StringBuilder(LENGTH);
+            for (int i = 0; i < LENGTH; )
+            {
+                if (i == REGISTERNUMMER_START_DIGIT)
+                {
+                    kontonrBuffer.Append(_registerNr);
+                    i += _registerNr.Length;
+                }
+                else
+                {
+                    var rand = new Random();
+                    var ran = rand.Next(0, 10);
+                    kontonrBuffer.Append(ran);
+                    i++;
+                }
+            }
+            return kontonrBuffer.ToString();
+        }
+    }
+
+    internal class NormalKontonrDigitGenerator : KontonummerDigitGenerator
+    {
+        internal override string GenerateKontonummer()
+        {
+            var kontonrBuffer = new StringBuilder(LENGTH);
+            for (int i = 0; i < LENGTH; i++)
+            {
+                var random = new Random();
+                var ran = random.Next(0, 10);
+                kontonrBuffer.Append(ran);
+            }
+            return kontonrBuffer.ToString();
+        }
+    }
+
 }

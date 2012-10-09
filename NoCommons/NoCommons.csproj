@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banking\Kidnummer.cs" />
+    <Compile Include="Banking\KidnummerValidator.cs" />
     <Compile Include="Banking\KontonummerCalculator.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Banking\IbanValidator.cs" />
@@ -48,6 +49,9 @@
     <Compile Include="Banking\KontonummerValidator.cs" />
     <Compile Include="Common\StringNumber.cs" />
     <Compile Include="Common\StringNumberValidator.cs" />
+    <Compile Include="Org\Organisasjonsnummer.cs" />
+    <Compile Include="Org\OrganisasjonsnummerCalculator.cs" />
+    <Compile Include="Org\OrganisasjonsnummerValidator.cs" />
     <Compile Include="Person\Fodselsnummer.cs" />
     <Compile Include="Person\FodselsnummerCalculator.cs" />
     <Compile Include="Person\FodselsnummerValidator.cs" />
