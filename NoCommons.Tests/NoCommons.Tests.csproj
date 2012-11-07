@@ -54,6 +54,7 @@
     <Compile Include="Banking\KidnummerValidatorTests.cs" />
     <Compile Include="Banking\KontonrValideringTests.cs" />
     <Compile Include="Banking\KontonummerCalculatorTests.cs" />
+    <Compile Include="Date\NorwegianDateUtilTests.cs" />
     <Compile Include="Org\OrganisasjonsnummerCalculatorTests.cs" />
     <Compile Include="Org\OrganisasjonsnummerValidatorTests.cs" />
     <Compile Include="Person\FodselsnummerCalculatorTests.cs" />

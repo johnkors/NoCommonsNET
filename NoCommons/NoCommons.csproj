@@ -49,6 +49,7 @@
     <Compile Include="Banking\KontonummerValidator.cs" />
     <Compile Include="Common\StringNumber.cs" />
     <Compile Include="Common\StringNumberValidator.cs" />
+    <Compile Include="Date\NorwegianDateUtil.cs" />
     <Compile Include="Org\Organisasjonsnummer.cs" />
     <Compile Include="Org\OrganisasjonsnummerCalculator.cs" />
     <Compile Include="Org\OrganisasjonsnummerValidator.cs" />
