@@ -6,28 +6,24 @@ namespace NoCommons.Date
     public class NorwegianDateUtil
     {
         private static Dictionary<int, HashSet<DateTime>> holidays;
-
-        /**
-         * Adds the given number of working days to the given date. A working day is
-         * specified as a regular Norwegian working day, excluding weekends and all
-         * national holidays.
-         * <p/>
-         * Example 1:<br/>
-         * - Add 5 working days to Wednesday 21.03.2007 -> Yields Wednesday
-         * 28.03.2007. (skipping saturday and sunday)<br/>
-         * <p/>
-         * Example 2:<br/>
-         * - Add 5 working days to Wednesday 04.04.2007 (day before
-         * easter-long-weekend) -> yields Monday 16.04.2007 (skipping 2 weekends and
-         * 3 weekday holidays).
-         *
-         * @param date
-         *            The original date.
-         * @param days
-         *            The number of working days to add.
-         * @return The new date.
-         */
-
+        
+        /// <summary>
+        /// Adds the given number of working days to the given date. A working day is
+        /// specified as a regular Norwegian working day, excluding weekends and all
+        /// national holidays.
+        /// 
+        /// Example 1:
+        /// - Add 5 working days to Wednesday 21.03.2007 -> Yields Wednesday
+        /// 28.03.2007. (skipping saturday and sunday)
+        /// 
+        /// Example 2:
+        /// - Add 5 working days to Wednesday 04.04.2007 (day before
+        /// easter-long-weekend) -> yields Monday 16.04.2007 (skipping 2 weekends and
+        /// 3 weekday holidays).
+        /// </summary>
+        /// <param name="date">The original date</param>
+        /// <param name="days">The number of working days to add</param>
+        /// <returns>The new date</returns>
         public static DateTime addWorkingDaysToDate(DateTime date, int days)
         {
 
@@ -44,36 +40,30 @@ namespace NoCommons.Date
             return localDate;
         }
 
-        /**
-         * Will check if the given date is a working day. That is check if the given
-         * date is a weekend day or a national holiday.
-         *
-         * @param date
-         *            The date to check.
-         * @return true if the given date is a working day, false otherwise.
-         */
-
+        /// <summary>
+        /// Will check if the given date is a working day. That is check if the given
+        /// date is a weekend day or a national holiday.
+        /// </summary>
+        /// <param name="date">The date to check</param>
+        /// <returns>true if the given date is a working day, false otherwise</returns>
         public static bool isWorkingDay(DateTime date)
         {
             return date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday
                    && !isHoliday(date);
         }
 
-        /**
-         * Check if given Date object is a holiday.
-         *
-         * @param date
-         *            The Date to check.
-         * @return true if holiday, false otherwise.
-         */
-
-        public static bool isHoliday(DateTime inDate)
+        /// <summary>
+        /// Check if given Date object is a holiday.
+        /// </summary>
+        /// <param name="date">date to check if is a holiday</param>
+        /// <returns>true if holiday, false otherwise</returns>
+        public static bool isHoliday(DateTime date)
         {
-            var year = inDate.Year;
+            var year = date.Year;
             var holidaysForYear = getHolidaySet(year);
             foreach (var holiday in holidaysForYear)
             {  
-                if (checkDate(inDate, holiday))
+                if (checkDate(date, holiday))
                 {
                     return true;
                 }
@@ -81,14 +71,11 @@ namespace NoCommons.Date
             return false;
         }
 
-        /**
-         * Return a sorted array of holidays for a given year.
-         *
-         * @param year
-         *            The year to get holidays for.
-         * @return The array of holidays, sorted by date.
-         */
-
+        /// <summary>
+        /// Return a sorted array of holidays for a given year.
+        /// </summary>
+        /// <param name="year">The year to get holidays for</param>
+        /// <returns>Holidays, sorted by date</returns>
         public static IEnumerable<DateTime> getHolidays(int year)
         {
             var days = getHolidaySet(year);
@@ -96,15 +83,12 @@ namespace NoCommons.Date
             listOfHolidays.Sort((date1, date2) => date1.CompareTo(date2));
             return listOfHolidays;
         }
-
-        /**
-         * Get a set of holidays for a given year.
-         *
-         * @param year
-         *            The year to get holidays for.
-         * @return The set of dates.
-         */
-
+    
+        /// <summary>
+        /// Get a set of holidays for a given year
+        /// </summary>
+        /// <param name="year">The year to get holidays for</param>
+        /// <returns>Holidays for year</returns>
         private static IEnumerable<DateTime> getHolidaySet(int year)
         {
             if (holidays == null)
@@ -116,58 +100,53 @@ namespace NoCommons.Date
                 var yearSet = new HashSet<DateTime>();
 
                 // Add set holidays.
-                yearSet.Add(getDate(1, 1, year));
-                yearSet.Add(getDate(1, 5, year));
-                yearSet.Add(getDate(17, 5, year));
-                yearSet.Add(getDate(25, 12, year));
-                yearSet.Add(getDate(26, 12, year));
+                yearSet.Add(new DateTime(year,1,1));
+                yearSet.Add(new DateTime(year, 5, 1));
+                yearSet.Add(new DateTime(year, 5, 17));
+                yearSet.Add(new DateTime(year, 12, 25));
+                yearSet.Add(new DateTime(year, 12, 26));
 
                 // Add movable holidays - based on easter day.
                 var easterDay = getEasterDay(year);
 
                 // Sunday before easter.
-                yearSet.Add(rollGetDate(easterDay, -7));
+                yearSet.Add(easterDay.AddDays(-7));
 
                 // Thurday before easter.
-                yearSet.Add(rollGetDate(easterDay, -3));
+                yearSet.Add(easterDay.AddDays(-3));
 
                 // Friday before easter.
-                yearSet.Add(rollGetDate(easterDay, -2));
+                yearSet.Add(easterDay.AddDays(-2));
 
                 // Easter day.
                 yearSet.Add(easterDay);
 
                 // Second easter day.
-                yearSet.Add(rollGetDate(easterDay, 1));
+                yearSet.Add(easterDay.AddDays(1));
 
                 // "Kristi himmelfart" day.
-                yearSet.Add(rollGetDate(easterDay, 39));
+                yearSet.Add(easterDay.AddDays(39));
 
                 // "Pinse" day.
-                yearSet.Add(rollGetDate(easterDay, 49));
+                yearSet.Add(easterDay.AddDays(49));
 
                 // Second "Pinse" day.
-                yearSet.Add(rollGetDate(easterDay, 50));
+                yearSet.Add(easterDay.AddDays(50));
 
                 holidays.Add(year, yearSet);
             }
             return holidays[year];
         }
 
+       
      
-
- 
-
-        /**
-         * Calculates easter day (sunday) by using Spencer Jones formula found here:
-         * <a href="http://no.wikipedia.org/wiki/P%C3%A5skeformelen">Wikipedia -
-         * Påskeformelen</a>
-         *
-         * @param year
-         *            The year to calculate from.
-         * @return The Calendar object representing easter day for the given year.
-         */
-
+      
+       /// <summary>
+       ///  Calculates easter day (sunday) by using Spencer Jones formula found here:
+       ///  http://no.wikipedia.org/wiki/P%C3%A5skeformelen
+       /// </summary>
+       /// <param name="year">year</param>
+       /// <returns>easterday for year</returns>
         private static DateTime getEasterDay(int year)
         {
             int a = year%19;
@@ -188,54 +167,9 @@ namespace NoCommons.Date
             return new DateTime(year, n, p + 1);
         }
 
-        /**
-         * Check if the given dates match on day and month.
-         *
-         * @param date
-         *            The Calendar representing the first date.
-         * @param other
-         *            The Calendar representing the second date.
-         * @return true if they match, false otherwise.
-         */
-
         private static bool checkDate(DateTime date, DateTime other)
         {
             return date.Day == other.Day && date.Month == other.Month;
-        }
-
-        /**
-         * Add the given number of days to the calendar and convert to Date.
-         *
-         * @param calendar
-         *            The calendar to add to.
-         * @param days
-         *            The number of days to add.
-         * @return The date object given by the modified calendar.
-         */
-
-        private static DateTime rollGetDate(DateTime calendar, int days)
-        {
-            var added = calendar.AddDays(days);
-            return added;
-        }
-
-        /**
-         * Get the date for the given values.
-         *
-         * @param day
-         *            The day.
-         * @param month
-         *            The month.
-         * @param year
-         *            The year.
-         * @return The date represented by the given values.
-         */
-
-        private static DateTime getDate(int day, int month, int year)
-        {
-            //Calendar date = Calendar.getInstance(TimeZone. GetTimeZone("Europe/Berlin"), new Locale("no", "NO"));
-
-            return new DateTime(year, month, day);
         }
     }
 }
