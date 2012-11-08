@@ -5,7 +5,7 @@ namespace NoCommons.Date
 {
     public class NorwegianDateUtil
     {
-        private static Dictionary<int, List<DateTime>> holidays;
+        private static Dictionary<int, HashSet<DateTime>> holidays;
 
         /**
          * Adds the given number of working days to the given date. A working day is
@@ -30,18 +30,18 @@ namespace NoCommons.Date
 
         public static DateTime addWorkingDaysToDate(DateTime date, int days)
         {
-            var cal = date;
-            var workingDays = 0;
+
+            var localDate = date;
             for (var i = 0; i < days; i++)
             {
-                var newDate = date.AddDays(1);
-                while (!isWorkingDay(newDate))
+                localDate = localDate.AddDays(1);
+                while (!isWorkingDay(localDate))
                 {
-                    workingDays++;
+                    localDate = localDate.AddDays(1);
                 }
             }
 
-            return cal.AddDays(workingDays);
+            return localDate;
         }
 
         /**
@@ -70,11 +70,10 @@ namespace NoCommons.Date
         public static bool isHoliday(DateTime inDate)
         {
             var year = inDate.Year;
-            var yearSet = getHolidaySet(year);
-            foreach (DateTime aYearSet in yearSet)
-            {
-                var date = aYearSet;
-                if (checkDate(inDate, date))
+            var holidaysForYear = getHolidaySet(year);
+            foreach (var holiday in holidaysForYear)
+            {  
+                if (checkDate(inDate, holiday))
                 {
                     return true;
                 }
@@ -90,11 +89,12 @@ namespace NoCommons.Date
          * @return The array of holidays, sorted by date.
          */
 
-        public static List<DateTime> getHolidays(int year)
+        public static IEnumerable<DateTime> getHolidays(int year)
         {
             var days = getHolidaySet(year);
-            days.Sort();
-            return days;
+            var listOfHolidays = new List<DateTime>(days);
+            listOfHolidays.Sort((date1, date2) => date1.CompareTo(date2));
+            return listOfHolidays;
         }
 
         /**
@@ -105,15 +105,15 @@ namespace NoCommons.Date
          * @return The set of dates.
          */
 
-        private static List<DateTime> getHolidaySet(int year)
+        private static IEnumerable<DateTime> getHolidaySet(int year)
         {
             if (holidays == null)
             {
-                holidays = new Dictionary<int, List<DateTime>>();
+                holidays = new Dictionary<int, HashSet<DateTime>>();
             }
             if (!holidays.ContainsKey(year))
             {
-                var yearSet = new List<DateTime>();
+                var yearSet = new HashSet<DateTime>();
 
                 // Add set holidays.
                 yearSet.Add(getDate(1, 1, year));
@@ -185,41 +185,23 @@ namespace NoCommons.Date
             int n = (h + l - (7*m) + 114)/31; // This is the month number.
             int p = (h + l - (7*m) + 114)%31; // This is the date minus one.
 
-            return new DateTime(year, n - 1, p + 1);
+            return new DateTime(year, n, p + 1);
         }
 
         /**
          * Check if the given dates match on day and month.
          *
-         * @param cal
+         * @param date
          *            The Calendar representing the first date.
          * @param other
          *            The Calendar representing the second date.
          * @return true if they match, false otherwise.
          */
 
-        private static bool checkDate(DateTime cal, DateTime other)
+        private static bool checkDate(DateTime date, DateTime other)
         {
-            return checkDate(cal, other.Day, other.Month);
+            return date.Day == other.Day && date.Month == other.Month;
         }
-
-        /**
-         * Check if the given date represents the given date and month.
-         *
-         * @param cal
-         *            The Calendar object representing date to check.
-         * @param date
-         *            The date.
-         * @param month
-         *            The month.
-         * @return true if they match, false otherwise.
-         */
-
-        private static bool checkDate(DateTime cal, int date, int month)
-        {
-            return cal.Day == date && cal.Month == month;
-        }
-
 
         /**
          * Add the given number of days to the calendar and convert to Date.
@@ -251,7 +233,7 @@ namespace NoCommons.Date
 
         private static DateTime getDate(int day, int month, int year)
         {
-            //Calendar cal = Calendar.getInstance(TimeZone. GetTimeZone("Europe/Berlin"), new Locale("no", "NO"));
+            //Calendar date = Calendar.getInstance(TimeZone. GetTimeZone("Europe/Berlin"), new Locale("no", "NO"));
 
             return new DateTime(year, month, day);
         }
