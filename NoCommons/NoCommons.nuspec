@@ -9,8 +9,8 @@
     <projectUrl>https://github.com/bekkopen/NoCommonsNET</projectUrl>    
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Organisasjonsnummer validator and calculator</releaseNotes>
+    <releaseNotes>Added date util. Get holidays for a given year. Get or add working days to a given date. </releaseNotes>
     <copyright>Copyright BEKK Open 2012</copyright>
-    <tags>norway norwegian kontonummer fodselsnummer kidnummer organisasjonsnummer validation generators calculator</tags>
+    <tags>norway norwegian kontonummer fodselsnummer kidnummer organisasjonsnummer validation generators calculator holidays easter christmas</tags>
   </metadata>
 </package>
