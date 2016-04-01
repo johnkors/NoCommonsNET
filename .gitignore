@@ -64,3 +64,5 @@ packages/
 *.testsettings
 
 .fake/
+.vscode/
+output/
