@@ -68,13 +68,13 @@ Target "CreatePackage" (fun _ ->
 
 Target "Nothing" (fun x -> trace "Try a defined target")
 
-"Clean"
-    ==> "UpdateAssemblyInfo"
+"Clean"    
     ==> "NugetRestore"
     ==> "BuildTest"
     ==> "Test"
+    ==> "UpdateAssemblyInfo"    
     ==> "Buildpackage"
     ==> "CreatePackage"
 
 
-RunTargetOrDefault "CreatePackage"
+RunTargetOrDefault "Test"
