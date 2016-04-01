@@ -45,11 +45,12 @@ Target "Test" (fun _ ->
 )
 
 Target "Buildpackage" (fun _ -> 
-    MSBuildDebug "" "Clean;Rebuild" [project] |> ignore    
+    MSBuildRelease "" "Build" [project] |> ignore    
 )
 
-Target "CreatePackage" (fun _ ->        
-    NuGet (fun p -> 
+Target "CreatePackage" (fun _ ->
+    project |>         
+        NuGet (fun p -> 
         {p with            
             WorkingDir = "./"
             Authors = ["John Korsnes"]
@@ -58,9 +59,10 @@ Target "CreatePackage" (fun _ ->
             OutputPath = packageOutputDir
             Version = nugetVersion
             AccessKey = nugetApiKey
-            Publish = false    
+            Publish = false
+            Properties = [ ("Configuration", "Release") ]    
             })
-        project
+        
         
 )
 
