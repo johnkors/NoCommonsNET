@@ -11,9 +11,12 @@ let project = "./NoCommons/NoCommons.csproj"
 let sln = "./NoCommons.NET.sln"
 let buildOutput = "./.build"
 
+
+
 Target "Clean" (fun() ->
     CleanDirs [buildOutput; packageOutputDir]
 )
+
 
 Target "UpdateAssemblyInfo"(fun _ -> 
     ReplaceAssemblyInfoVersions (fun p -> 
@@ -24,6 +27,11 @@ Target "UpdateAssemblyInfo"(fun _ ->
                 AssemblyVersion = assemblyVersion
         }) 
 )
+
+Target "NugetRestore" (fun _ -> 
+    RestorePackages() 
+)
+
 
 Target "Build" (fun _ ->
     MSBuildRelease buildOutput "Rebuild" [sln] |> ignore 
@@ -38,17 +46,16 @@ Target "Test" (fun _ ->
 )
 
 Target "CreatePackage" (fun _ ->
-    
+    MSBuildDebug "" "Rebuild" [sln] |> ignore    
     NuGet (fun p -> 
         {p with            
-            WorkingDir = "./tools/nuget/" 
+            WorkingDir = "./tools/nuget"
             Authors = ["John Korsnes"]
-            Project = "NoCommons"
-            Description = "stuff"
+            Project = "NoCommons"            
             OutputPath = packageOutputDir
             Version = nugetVersion
             AccessKey = nugetApiKey
-            Publish = false
+            Publish = false    
             }) 
         project
 )
@@ -57,6 +64,7 @@ Target "Nothing" (fun x -> trace "Try a defined target")
 
 "Clean"
     ==> "UpdateAssemblyInfo"
+    ==> "NugetRestore"
     ==> "Build"
     ==> "Test"
     ==> "CreatePackage"
