@@ -3,9 +3,8 @@ open Fake
 open Fake.AssemblyInfoFile
 open Fake.Testing.NUnit3
 
-let assemblyVersion = getBuildParamOrDefault "version" "0.1"
+let assemblyVersion = getBuildParamOrDefault "version" "0.1.0"
 let nugetVersion = assemblyVersion + "-alfa0003"
-let packageInputDir = "./.packagefiles/"
 let packageOutputDir = "./.output"
 
 let nugetApiKey = environVarOrDefault "NugetOrgApiKey" "ENV-VARIABLE NugetOrgApiKey is missing"
@@ -16,7 +15,7 @@ let sln = "./NoCommons.NET.sln"
 let buildOutputTest = "./.testbuild"
 
 Target "Clean" (fun() ->
-    CleanDirs [buildOutputTest; packageInputDir; packageOutputDir]
+    CleanDirs [buildOutputTest; packageOutputDir]
 )
 
 Target "UpdateAssemblyInfo"(fun _ -> 

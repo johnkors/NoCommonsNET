@@ -34,6 +34,6 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("0.1")]
 
 [assembly: InternalsVisibleTo("NoCommons.Tests")]
-[assembly: AssemblyVersion("0.1")]
-[assembly: AssemblyFileVersion("0.1")]
+[assembly: AssemblyVersion("0.1.0")]
+[assembly: AssemblyFileVersion("0.1.0")]
 
