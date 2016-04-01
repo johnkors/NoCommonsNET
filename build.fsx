@@ -2,10 +2,10 @@
 open Fake
 open Fake.AssemblyInfoFile
 
-let assemblyVersion = getBuildParamOrDefault "version" "0.3"
+let assemblyVersion = getBuildParamOrDefault "version" "0.1"
 let nugetVersion = assemblyVersion + "-alfa0001"
 let packageOutputDir = "./output"
-let nugetApiKey = environVarOrDefault "nuget-api-key" "ENV-VARIABLE nuget-api-key is missing"
+let nugetApiKey = environVarOrDefault "NugetOrgApiKey" "ENV-VARIABLE NugetOrgApiKey is missing"
 
 Target "Clean" (fun() ->
     CleanDirs [packageOutputDir]
@@ -18,15 +18,16 @@ Target "UpdateAssemblyInfo"(fun _ ->
 Target "CreatePackage" (fun _ ->
     
     NuGet (fun p -> 
-        {p with
+        {p with            
             WorkingDir = "./tools/nuget/" 
             Authors = ["John Korsnes"]
-            Project = "NoCommons.NET"
+            Project = "NoCommons"
             Description = "stuff"
             OutputPath = packageOutputDir
             Version = nugetVersion
-            AccessKey = "My-API-Key-In-NuGet"
-            Publish = false }) 
+            AccessKey = nugetApiKey
+            Publish = true            
+            }) 
         "./NoCommons/NoCommons.csproj"
 )
 
