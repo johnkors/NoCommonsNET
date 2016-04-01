@@ -2,10 +2,13 @@
 open Fake
 open Fake.AssemblyInfoFile
 open Fake.Testing.NUnit3
+open System
 
 let assemblyVersion = getBuildParamOrDefault "version" "0.1.0"
-let nugetVersion = assemblyVersion + "-alfa0003"
-let packageOutputDir = "./.output"
+let nugetVersion = assemblyVersion
+let packageOutputDir = "./.output" 
+let publishToNugetOrg = true  
+
 
 let nugetApiKey = environVarOrDefault "NugetOrgApiKey" "ENV-VARIABLE NugetOrgApiKey is missing"
 let project = "./NoCommons/NoCommons.csproj"
@@ -59,7 +62,7 @@ Target "CreatePackage" (fun _ ->
             OutputPath = packageOutputDir
             Version = nugetVersion
             AccessKey = nugetApiKey
-            Publish = false
+            Publish = publishToNugetOrg
             Properties = [ ("Configuration", "Release") ]    
             })
         
