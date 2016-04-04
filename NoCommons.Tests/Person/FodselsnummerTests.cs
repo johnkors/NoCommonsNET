@@ -57,7 +57,10 @@ namespace NoCommons.Tests.Person
 	        sut = new Fodselsnummer("41016666609");
 	        Assert.AreEqual("18", sut.getCentury());
 
-	        sut = new Fodselsnummer("41016633301");
+            sut = new Fodselsnummer("01015466609");
+            Assert.AreEqual("18", sut.getCentury());
+
+            sut = new Fodselsnummer("41016633301");
 	        Assert.AreEqual("19", sut.getCentury());
 
 	        sut = new Fodselsnummer("41019196697");

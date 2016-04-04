@@ -50,7 +50,7 @@ namespace NoCommons.Tests.Person
         [Test]
         public void testInvalidDateTooEarly()
         {
-            date = DateTime.ParseExact("09091854", _dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None);
+            date = DateTime.ParseExact("09091853", _dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None);
             List<Fodselsnummer> options = FodselsnummerCalculator.getManyFodselsnummerForDate(date);
             Assert.AreEqual(0, options.Count);
         }

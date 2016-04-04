@@ -63,3 +63,9 @@ packages/
 #Test files
 *.testsettings
 
+.fake/
+.vscode/
+.output/
+.testbuild/
+.build/
+.packagefiles/
