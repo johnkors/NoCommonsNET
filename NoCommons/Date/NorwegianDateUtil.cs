@@ -5,6 +5,7 @@ namespace NoCommons.Date
 {
     public class NorwegianDateUtil
     {
+        private static readonly object Lock = new object();
         private static Dictionary<int, HashSet<DateTime>> holidays;
         
         /// <summary>
@@ -91,49 +92,52 @@ namespace NoCommons.Date
         /// <returns>Holidays for year</returns>
         private static IEnumerable<DateTime> getHolidaySet(int year)
         {
-            if (holidays == null)
+            lock (Lock)
             {
-                holidays = new Dictionary<int, HashSet<DateTime>>();
-            }
-            if (!holidays.ContainsKey(year))
-            {
-                var yearSet = new HashSet<DateTime>();
+                if (holidays == null)
+                {
+                    holidays = new Dictionary<int, HashSet<DateTime>>();
+                }
+                if (!holidays.ContainsKey(year))
+                {
+                    var yearSet = new HashSet<DateTime>();
 
-                // Add set holidays.
-                yearSet.Add(new DateTime(year,1,1));
-                yearSet.Add(new DateTime(year, 5, 1));
-                yearSet.Add(new DateTime(year, 5, 17));
-                yearSet.Add(new DateTime(year, 12, 25));
-                yearSet.Add(new DateTime(year, 12, 26));
+                    // Add set holidays.
+                    yearSet.Add(new DateTime(year, 1, 1));
+                    yearSet.Add(new DateTime(year, 5, 1));
+                    yearSet.Add(new DateTime(year, 5, 17));
+                    yearSet.Add(new DateTime(year, 12, 25));
+                    yearSet.Add(new DateTime(year, 12, 26));
 
-                // Add movable holidays - based on easter day.
-                var easterDay = getEasterDay(year);
+                    // Add movable holidays - based on easter day.
+                    var easterDay = getEasterDay(year);
 
-                // Sunday before easter.
-                yearSet.Add(easterDay.AddDays(-7));
+                    // Sunday before easter.
+                    yearSet.Add(easterDay.AddDays(-7));
 
-                // Thurday before easter.
-                yearSet.Add(easterDay.AddDays(-3));
+                    // Thurday before easter.
+                    yearSet.Add(easterDay.AddDays(-3));
 
-                // Friday before easter.
-                yearSet.Add(easterDay.AddDays(-2));
+                    // Friday before easter.
+                    yearSet.Add(easterDay.AddDays(-2));
 
-                // Easter day.
-                yearSet.Add(easterDay);
+                    // Easter day.
+                    yearSet.Add(easterDay);
 
-                // Second easter day.
-                yearSet.Add(easterDay.AddDays(1));
+                    // Second easter day.
+                    yearSet.Add(easterDay.AddDays(1));
 
-                // "Kristi himmelfart" day.
-                yearSet.Add(easterDay.AddDays(39));
+                    // "Kristi himmelfart" day.
+                    yearSet.Add(easterDay.AddDays(39));
 
-                // "Pinse" day.
-                yearSet.Add(easterDay.AddDays(49));
+                    // "Pinse" day.
+                    yearSet.Add(easterDay.AddDays(49));
 
-                // Second "Pinse" day.
-                yearSet.Add(easterDay.AddDays(50));
+                    // Second "Pinse" day.
+                    yearSet.Add(easterDay.AddDays(50));
 
-                holidays.Add(year, yearSet);
+                    holidays.Add(year, yearSet);
+                }
             }
             return holidays[year];
         }
