@@ -8,7 +8,8 @@
     "Microsoft.NETCore.App": {
       "type": "platform",
       "version": "1.1.0"
-    }
+    },
+    "NoCommons": "1.0.0-dotnetstandard0003"
   },
 
   "frameworks": {

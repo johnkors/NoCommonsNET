@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using NoCommons.Person;
 
 namespace ConsoleDotNetCore1._0

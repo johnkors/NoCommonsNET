@@ -1,4 +1,5 @@
 ﻿using System;
+using NoCommons.Person;
 
 namespace ConsoleDotNet45
 {
@@ -6,7 +7,7 @@ namespace ConsoleDotNet45
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hi, this is a fodselsnr: " + "12312312");
+			Console.WriteLine("Hi, this is a fodselsnr: " + FodselsnummerValidator.IsValid("123"));
 			Console.ReadKey();
 		}
 	}

@@ -2028,7 +2028,7 @@
           "lib/netstandard1.3/_._": {}
         }
       },
-      "NoCommons/1.0.0-dotnetstandard0001": {
+      "NoCommons/1.0.0-dotnetstandard0003": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.2",
         "dependencies": {
@@ -6635,7 +6635,7 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "NoCommons/1.0.0-dotnetstandard0001": {
+    "NoCommons/1.0.0-dotnetstandard0003": {
       "type": "project",
       "path": "../NoCommons/project.json",
       "msbuildProject": "../NoCommons/NoCommons.xproj"
@@ -6644,7 +6644,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.App >= 1.0.0",
-      "NoCommons >= 1.0.0-dotnetstandard0001"
+      "NoCommons >= 1.0.0-dotnetstandard0003"
     ],
     ".NETCoreApp,Version=v1.0": []
   },
