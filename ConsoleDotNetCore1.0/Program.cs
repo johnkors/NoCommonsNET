@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using NoCommons.Person;
 
 namespace ConsoleDotNetCore1._0
 {
@@ -7,7 +8,7 @@ namespace ConsoleDotNetCore1._0
     {
         public static void Main(string[] args)
         {
-			Console.WriteLine("Hi, this is a fodselsnr: " + "12312312".Any(c => c == '1'));
+			Console.WriteLine("Hi, this is a fodselsnr: " + FodselsnummerValidator.IsValid("25010218228"));
 	        Console.ReadKey();
         }
     }

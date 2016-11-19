@@ -2,6 +2,7 @@
   "locked": false,
   "version": 2,
   "targets": {
+    ".NETFramework,Version=v4.5": {},
     ".NETStandard,Version=v1.2": {
       "Microsoft.NETCore.Platforms/1.0.1": {
         "type": "package",
@@ -2562,6 +2563,7 @@
   },
   "projectFileDependencyGroups": {
     "": [],
+    ".NETFramework,Version=v4.5": [],
     ".NETStandard,Version=v1.2": [
       "NETStandard.Library >= 1.6.0"
     ]

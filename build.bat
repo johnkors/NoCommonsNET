@@ -1,2 +1,2 @@
-dotnet build NoCommons -c Release -f netstandard1.0
-dotnetpack NoCommons -c Release
+dotnet restore NoCommons
+dotnet pack NoCommons -c Release -o build

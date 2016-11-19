@@ -1,14 +1,15 @@
 ﻿{
-  "version": "1.0.0-dotnetstandard0001",
-  "packOptions" : {
+  "version": "1.0.0-dotnetstandard0002",
+  "packOptions": {
     "owners": [ "John Korsnes", "johnkors" ]
   },
 
   "dependencies": {
-   
+
   },
 
   "frameworks": {
+    "net45": { },
     "netstandard1.2": {
       "imports": "dnxcore50",
       "dependencies": {
@@ -16,4 +17,4 @@
       }
     }
   }
-} 
+}
