@@ -1872,10 +1872,10 @@
     }
   },
   "projectFileDependencyGroups": {
-    "": [
+    "": [],
+    ".NETStandard,Version=v1.0": [
       "NETStandard.Library >= 1.6.0"
-    ],
-    ".NETStandard,Version=v1.0": []
+    ]
   },
   "tools": {},
   "projectFileToolGroups": {}
