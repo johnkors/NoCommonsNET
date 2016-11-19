@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons", "NoCommons\NoCommons.csproj", "{18E7F5EE-B399-4A78-8A2E-694D5F84674C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons.Old", "NoCommons.Old\NoCommons.Old.csproj", "{18E7F5EE-B399-4A78-8A2E-694D5F84674C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons.Tests", "NoCommons.Tests\NoCommons.Tests.csproj", "{31CC9124-A7CF-427C-95D9-E06651E7846F}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ConsoleDotNetCore1.0", "ConsoleDotNetCore1.0\ConsoleDotNetCore1.0.xproj", "{B6417692-7300-45F1-9309-10D5B3CDE304}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ConsoleDotNetCore1.1", "ConsoleDotNetCore1.1\ConsoleDotNetCore1.1.xproj", "{8AC05FE4-BDCF-4917-AA09-24F82152BB29}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoCommons", "NoCommons\NoCommons.xproj", "{FDEE12D8-0DF3-4FDB-B7EC-8358FA039C34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{8AC05FE4-BDCF-4917-AA09-24F82152BB29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AC05FE4-BDCF-4917-AA09-24F82152BB29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AC05FE4-BDCF-4917-AA09-24F82152BB29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDEE12D8-0DF3-4FDB-B7EC-8358FA039C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDEE12D8-0DF3-4FDB-B7EC-8358FA039C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDEE12D8-0DF3-4FDB-B7EC-8358FA039C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDEE12D8-0DF3-4FDB-B7EC-8358FA039C34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
