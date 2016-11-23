@@ -1,23 +1,25 @@
 ﻿{
-  "version": "1.0.0-dotnetstandard0003",
+  "version": "1.0.0-dotnetstandard0006",
   "packOptions": {
     "owners": [ "John Korsnes", "johnkors" ]
   },
 
   "dependencies": {
-
   },
 
   "frameworks": {
     "net45": { },
-    "netstandard1.2": {
+    "netstandard1.0": {
       "imports": [
-        "dnxcore50"
+        "dnxcore50", "dnx45", "aspnet50"
       ],
 
       "dependencies": {
-        "NETStandard.Library": "1.6.0"
-      }
+        "System.Linq": "4.0.0",  
+        "System.Resources.ResourceManager": "4.0.0",
+        "System.Runtime.Extensions": "4.0.10",
+        "System.Text.RegularExpressions": "4.0.0"
+       }
     }
   }
 }
