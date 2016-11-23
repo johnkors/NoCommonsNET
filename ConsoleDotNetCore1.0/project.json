@@ -9,7 +9,7 @@
       "type": "platform",
       "version": "1.0.0"
     },
-    "NoCommons": "1.0.0-dotnetstandard0005"
+    "NoCommons": "1.0.0-dotnetstandard0006"
   },
 
   "frameworks": {

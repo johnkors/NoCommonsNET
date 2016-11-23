@@ -2123,20 +2123,20 @@
           "lib/netstandard1.3/_._": {}
         }
       },
-      "NoCommons/1.0.0-dotnetstandard0005": {
+      "NoCommons/1.0.0-dotnetstandard0006": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.2",
+        "framework": ".NETStandard,Version=v1.0",
         "dependencies": {
-          "System.Linq": "4.3.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Text.RegularExpressions": "4.1.0"
+          "System.Linq": "4.0.0",
+          "System.Resources.ResourceManager": "4.0.0",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Text.RegularExpressions": "4.0.0"
         },
         "compile": {
-          "netstandard1.2/NoCommons.dll": {}
+          "netstandard1.0/NoCommons.dll": {}
         },
         "runtime": {
-          "netstandard1.2/NoCommons.dll": {}
+          "netstandard1.0/NoCommons.dll": {}
         }
       }
     }
@@ -6942,7 +6942,7 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "NoCommons/1.0.0-dotnetstandard0005": {
+    "NoCommons/1.0.0-dotnetstandard0006": {
       "type": "project",
       "path": "../NoCommons/project.json",
       "msbuildProject": "../NoCommons/NoCommons.xproj"
@@ -6951,7 +6951,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.App >= 1.1.0",
-      "NoCommons >= 1.0.0-dotnetstandard0005"
+      "NoCommons >= 1.0.0-dotnetstandard0006"
     ],
     ".NETCoreApp,Version=v1.1": []
   },
