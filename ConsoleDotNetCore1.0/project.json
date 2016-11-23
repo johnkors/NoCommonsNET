@@ -9,7 +9,8 @@
       "type": "platform",
       "version": "1.0.0"
     },
-    "NoCommons": "1.0.0-dotnetstandard0006"
+    "NoCommons": "1.0.0-dotnetstandard0006",
+    "System.Linq": "4.3.0"
   },
 
   "frameworks": {
