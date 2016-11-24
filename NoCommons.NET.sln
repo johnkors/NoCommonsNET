@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons.Old", "NoCommons.Old\NoCommons.Old.csproj", "{18E7F5EE-B399-4A78-8A2E-694D5F84674C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons.Tests", "NoCommons.Tests\NoCommons.Tests.csproj", "{31CC9124-A7CF-427C-95D9-E06651E7846F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons.Tests", "NoCommons.Old.Tests\NoCommons.Old.Tests.csproj", "{31CC9124-A7CF-427C-95D9-E06651E7846F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{E6106EB8-77BD-4B2D-87B5-0E9D4FB86315}"
 EndProject
