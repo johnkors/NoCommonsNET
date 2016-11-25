@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons.Old", "NoCommons.Old\NoCommons.Old.csproj", "{18E7F5EE-B399-4A78-8A2E-694D5F84674C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons.Old.Tests", "NoCommons.Old.Tests\NoCommons.Old.Tests.csproj", "{31CC9124-A7CF-427C-95D9-E06651E7846F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{E6106EB8-77BD-4B2D-87B5-0E9D4FB86315}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDotNet45", "ConsoleDotNet45\ConsoleDotNet45.csproj", "{1C804D7C-0CB1-4630-800B-7370F89EC3F7}"
@@ -32,14 +28,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{18E7F5EE-B399-4A78-8A2E-694D5F84674C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18E7F5EE-B399-4A78-8A2E-694D5F84674C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18E7F5EE-B399-4A78-8A2E-694D5F84674C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18E7F5EE-B399-4A78-8A2E-694D5F84674C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31CC9124-A7CF-427C-95D9-E06651E7846F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31CC9124-A7CF-427C-95D9-E06651E7846F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31CC9124-A7CF-427C-95D9-E06651E7846F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31CC9124-A7CF-427C-95D9-E06651E7846F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C804D7C-0CB1-4630-800B-7370F89EC3F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C804D7C-0CB1-4630-800B-7370F89EC3F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C804D7C-0CB1-4630-800B-7370F89EC3F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
