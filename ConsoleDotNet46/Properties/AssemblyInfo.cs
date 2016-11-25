@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NoCommons.NET")]
-[assembly: AssemblyDescription("The NoCommons library is a collection of helper classes for manipulation and validation of data specific to Norway and Norwegian citizens")]
+[assembly: AssemblyTitle("ConsoleDotNet46")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("John Korsnes")]
-[assembly: AssemblyProduct("NoCommons.NET")]
-[assembly: AssemblyCopyright("Copyright © BEKK Open 2012")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ConsoleDotNet46")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,6 +19,8 @@ using System.Runtime.InteropServices;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("0c4022c0-ee6f-4d94-bfb0-e363a0f2d837")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -29,9 +31,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("0.1.0")]
-
-[assembly: InternalsVisibleTo("NoCommons.Tests")]
-[assembly: AssemblyVersion("0.1.0")]
-[assembly: AssemblyFileVersion("0.1.0")]
-
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

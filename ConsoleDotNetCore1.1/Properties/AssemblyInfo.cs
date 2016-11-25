@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NoCommons.Tests")]
+[assembly: AssemblyProduct("ConsoleDotNetCore1._1")]
 [assembly: AssemblyTrademark("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -16,4 +16,4 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("14d5c0e4-0275-4f28-b978-21401cc61506")]
+[assembly: Guid("8ac05fe4-bdcf-4917-aa09-24f82152bb29")]

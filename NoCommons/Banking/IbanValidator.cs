@@ -55,7 +55,7 @@ namespace NoCommons.Banking
                 }
                 else
                 {
-                    v = int.Parse(c.ToString(CultureInfo.InvariantCulture));
+                    v = int.Parse(c.ToString());
                 }
                 sb.Append(v);
             }

@@ -69,3 +69,6 @@ packages/
 .testbuild/
 .build/
 .packagefiles/
+.vs/
+.dotnetcli/
+scripts/
