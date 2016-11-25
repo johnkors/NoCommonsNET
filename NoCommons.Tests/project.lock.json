@@ -2496,27 +2496,6 @@
           "netstandard1.0/NoCommons.dll": {}
         }
       }
-    },
-    ".NETFramework,Version=v4.5": {
-      "NUnit/3.5.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/nunit.framework.dll": {}
-        },
-        "runtime": {
-          "lib/net45/nunit.framework.dll": {}
-        }
-      },
-      "NoCommons/1.0.0-dotnetstandard0006": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5",
-        "compile": {
-          "net45/NoCommons.dll": {}
-        },
-        "runtime": {
-          "net45/NoCommons.dll": {}
-        }
-      }
     }
   },
   "libraries": {
@@ -7436,8 +7415,7 @@
     ".NETCoreApp,Version=v1.0": [
       "Microsoft.NETCore.App >= 1.0.0-*",
       "dotnet-test-nunit >= 3.4.0-beta-3"
-    ],
-    ".NETFramework,Version=v4.5": []
+    ]
   },
   "tools": {},
   "projectFileToolGroups": {}

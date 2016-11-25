@@ -70,3 +70,5 @@ packages/
 .build/
 .packagefiles/
 .vs/
+.dotnetcli/
+scripts/

@@ -1,9 +1,11 @@
-dotnet restore NoCommons
-dotnet restore NoCommons.Tests
+powershell .\InstallDotNetCore.ps1
 
-dotnet build NoCommons
-dotnet build NoCommons.Tests
+.\.dotnetcli\dotnet restore NoCommons
+.\.dotnetcli\dotnet restore NoCommons.Tests
 
-dotnet test NoCommons.Tests
+.\.dotnetcli\dotnet build NoCommons
+.\.dotnetcli\dotnet build NoCommons.Tests
 
-dotnet pack NoCommons -c Release -o build --no-build
+.\.dotnetcli\dotnet test NoCommons.Tests
+
+.\.dotnetcli\dotnet pack NoCommons -c Release -o build --no-build
