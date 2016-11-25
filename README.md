@@ -9,3 +9,5 @@ NoCommonsNET
 Port av NoCommons-biblioteket for .NET
 
  * https://github.com/bekkopen/NoCommons
+
+ Now with netstandard1.0 support!
