@@ -2480,14 +2480,16 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "NoCommons/1.0.0-dotnetstandard0006": {
+      "NoCommons/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.0",
         "dependencies": {
           "System.Linq": "4.0.0",
           "System.Resources.ResourceManager": "4.0.0",
           "System.Runtime.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.0"
+          "System.Text.RegularExpressions": "4.0.0",
+          "System.Threading": "4.0.0",
+          "System.Threading.Tasks": "4.0.0"
         },
         "compile": {
           "netstandard1.0/NoCommons.dll": {}
@@ -7401,7 +7403,7 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "NoCommons/1.0.0-dotnetstandard0006": {
+    "NoCommons/1.0.0": {
       "type": "project",
       "path": "../NoCommons/project.json",
       "msbuildProject": "../NoCommons/NoCommons.xproj"

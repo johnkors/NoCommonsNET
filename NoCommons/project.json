@@ -1,5 +1,5 @@
 ﻿{
-  "version": "1.0.0-dotnetstandard0006",
+  "version": "1.0.0",
   "packOptions": {
     "owners": [ "John Korsnes", "johnkors" ]
   },

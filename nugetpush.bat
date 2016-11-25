@@ -1,1 +1,1 @@
-nuget push build/NoCommons.1.0.0-dotnetstandard0006.nupkg
+nuget push build/NoCommons.1.0.0.nupkg
