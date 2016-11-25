@@ -73,7 +73,7 @@ namespace NoCommons.Person
                         result.Add(fodselsnummer);
                     }
                 }
-                catch (ArgumentException e)
+                catch (ArgumentException)
                 {
                     continue;
                 }
