@@ -10,4 +10,4 @@ Port av NoCommons-biblioteket for .NET
 
  * https://github.com/bekkopen/NoCommons
 
- Now with netstandard1.0 support!
+ Sample apps can be found [in the samples repo](https://github.com/johnkors/NoCommonsNET.Samples)
