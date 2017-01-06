@@ -8,4 +8,4 @@ powershell .\InstallDotNetCore.ps1
 
 .\.dotnetcli\dotnet test NoCommons.Tests
 
-.\.dotnetcli\dotnet pack NoCommons -c Release -o build --no-build
+.\.dotnetcli\dotnet pack NoCommons -c Release -o build 
