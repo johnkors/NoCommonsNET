@@ -1,16 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoCommons", "NoCommons\NoCommons.xproj", "{FDEE12D8-0DF3-4FDB-B7EC-8358FA039C34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons", "NoCommons\NoCommons.csproj", "{FDEE12D8-0DF3-4FDB-B7EC-8358FA039C34}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SlnItems", "SlnItems", "{8E7DAB71-35E7-470D-A7F5-A83C02AF89AA}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoCommons.Tests", "NoCommons.Tests\NoCommons.Tests.xproj", "{14D5C0E4-0275-4F28-B978-21401CC61506}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons.Tests", "NoCommons.Tests\NoCommons.Tests.csproj", "{14D5C0E4-0275-4F28-B978-21401CC61506}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

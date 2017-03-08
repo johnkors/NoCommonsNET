@@ -1,7 +1,7 @@
 mkdir -Force ".\scripts\obtain\" | Out-Null
 Invoke-WebRequest "https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0/scripts/obtain/dotnet-install.ps1" -OutFile ".\scripts\obtain\install.ps1"
 $env:DOTNET_INSTALL_DIR = "$pwd\.dotnetcli"
-.\scripts\obtain\install.ps1 -InstallDir "$pwd\.dotnetcli" -NoPath -version "1.0.0-preview2-003121" 
+.\scripts\obtain\install.ps1 -InstallDir "$pwd\.dotnetcli" -NoPath -version "1.0.1" 
 
 # Installs this atm:
 # -Channel "preview"
