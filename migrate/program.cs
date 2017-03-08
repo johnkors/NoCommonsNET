@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -22,7 +22,7 @@ static Regex explicitTest = new Regex(@"\[Explicit\]", RegexOptions.Compiled);
 static Regex testWithExplicit = new Regex(@"\[Test, Explicit\]", RegexOptions.Compiled);
 static Regex testCaseWithTestAttribute = new Regex(@"\[Fact\]\r?\n\s*?\[TestCase\(", RegexOptions.Compiled | RegexOptions.Multiline);
 static Regex testCaseToTheory = new Regex(@"(^[}\s\r]+\n\s*?\[TestCase\()", RegexOptions.Compiled | RegexOptions.Multiline);
-static Regex testCase = new Regex(@"\[TestCase(", RegexOptions.Compiled);
+//static Regex testCase = new Regex(@"\[TestCase(", RegexOptions.Compiled);
 static Regex asyncVoidFix = new Regex(@"(?<Match>(\[Theory|\[Fact|\[InlineData).*\r?\n\s*)public async void", RegexOptions.Compiled | RegexOptions.Multiline);
 static Regex setUp = new Regex(@"public class (?<classname>\w+)(?<stuff>.*?)\[SetUp\]\r?\n *?public void \w+", RegexOptions.Compiled | RegexOptions.Singleline);
 static Regex tearDown = new Regex(@"public class (?<classname>\w+)(?<stuff>.*?)\[SetUp\]\r?\n *?public void \w+", RegexOptions.Compiled | RegexOptions.Singleline);
@@ -36,10 +36,9 @@ static void Main()
 	{
 		var originalFileContents = File.ReadAllText(csFile);
 		var fileContents = originalFileContents;
-		if (!fileContents.Contains("using NUnit.Framework;")) continue;
+		if (!fileContents.Contains("using Xunit;")) continue;
 		
-		// Remove [TestFixture]
-		if (!string.IsNullOrEmpty(testFixture.Match(fileContents).Groups["AdditionalAttributes"].Value))
+		// Remove		if (!string.IsNullOrEmpty(testFixture.Match(fileContents).Groups["AdditionalAttributes"].Value))
 	 		fileContents = testFixture.Replace(fileContents, "    [${AdditionalAttributes}]\r\n");
 		else
 	 		fileContents = testFixture.Replace(fileContents, string.Empty);
@@ -50,19 +49,19 @@ static void Main()
 	 	fileContents = testWithExplicit.Replace(fileContents, "[RunnableInDebugOnlyAttribute]");
 		fileContents = testCaseWithTestAttribute.Replace(fileContents, "[Theory]\r\n        [InlineData(");
 		fileContents = testCaseToTheory.Replace(fileContents, "[Theory]    $1");
-		fileContents = testCase.Replace(fileContents, "[InlineData(");
+		//fileContents = testCase.Replace(fileContents, "[InlineData(");
 		fileContents = asyncVoidFix.Replace(fileContents, "${Match}public async Task");
 		fileContents = setUp.Replace(fileContents, "public class ${classname}${stuff}public ${classname}");
-		if (fileContents.Contains("[TearDown]"))
-		{
-			var classDefinition = classInherits.Match(fileContents);
-			if (classDefinition.Groups["inherits"].Success)
-				fileContents = fileContents.Replace(classDefinition.Value, classDefinition.Value.TrimEnd('\r', '\n') + ", IDisposable");
-			else
-				fileContents = fileContents.Replace(classDefinition.Value, classDefinition.Value.TrimEnd('\r', '\n') + " : IDisposable");
-			fileContents = fixTearDown.Replace(fileContents, "public void Dispose");
-		}
-		fileContents = fileContents.Replace("using NUnit.Framework;", "using Xunit;");
+		// if (fileContents.Contains("[TearDown]"))
+		// {
+		// 	var classDefinition = classInherits.Match(fileContents);
+		// 	if (classDefinition.Groups["inherits"].Success)
+		// 		fileContents = fileContents.Replace(classDefinition.Value, classDefinition.Value.TrimEnd('\r', '\n') + ", IDisposable");
+		// 	else
+		// 		fileContents = fileContents.Replace(classDefinition.Value, classDefinition.Value.TrimEnd('\r', '\n') + " : IDisposable");
+		// 	fileContents = fixTearDown.Replace(fileContents, "public void Dispose");
+		// }
+		fileContents = fileContents.Replace("using Xunit;", "using Xunit;");
 		if (fileContents == originalFileContents) continue;
 		//csFile.Dump();
 		File.WriteAllText(csFile, fileContents);

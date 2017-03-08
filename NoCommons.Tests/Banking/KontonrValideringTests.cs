@@ -1,24 +1,23 @@
-﻿using System;
+using System;
 using System.Text;
-using NUnit.Framework;
+using Xunit;
 using NoCommons.Banking;
 using NoCommons.Common;
 
 namespace NoCommons.Tests.Banking
 {
-    [TestFixture]
     public class KontonrValideringTests
     {
         private const string KONTONUMMER_VALID = "99990000006";
         private const string KONTONUMMER_INVALID_CHECKSUM = "99990000005";
 
-        [Test]
+        [Fact]
         public void TestInvalidKontonummerWrongLength()
         {
             try
             {
                 KontonummerValidator.ValidateSyntax("123456789012");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -26,13 +25,13 @@ namespace NoCommons.Tests.Banking
             }
         }
 
-        [Test]
+        [Fact]
         public void TestInvalidKontonummerNotDigits()
         {
             try
             {
                 KontonummerValidator.ValidateSyntax("abcdefghijk");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -40,13 +39,13 @@ namespace NoCommons.Tests.Banking
             }
         }
 
-        [Test]
+        [Fact]
         public void TestInvalidKontonummerWrongChecksum()
         {
             try
             {
                 KontonummerValidator.ValidateChecksum(KONTONUMMER_INVALID_CHECKSUM);
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -54,7 +53,7 @@ namespace NoCommons.Tests.Banking
             }
         }
 
-        [Test]
+        [Fact]
         public void TestInvalidAccountTypeWrongLength()
         {
             var b = new StringBuilder(KontonummerValidator.ACCOUNTTYPE_NUM_DIGITS + 1);
@@ -65,7 +64,7 @@ namespace NoCommons.Tests.Banking
             try
             {
                 KontonummerValidator.ValidateAccountTypeSyntax(b.ToString());
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -73,7 +72,7 @@ namespace NoCommons.Tests.Banking
             }
         }
 
-        [Test]
+        [Fact]
         public void TestInvalidAccountTypeNotDigits()
         {
             var b = new StringBuilder(KontonummerValidator.ACCOUNTTYPE_NUM_DIGITS);
@@ -84,7 +83,7 @@ namespace NoCommons.Tests.Banking
             try
             {
                 KontonummerValidator.ValidateAccountTypeSyntax(b.ToString());
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -92,7 +91,7 @@ namespace NoCommons.Tests.Banking
             }
         }
 
-        [Test]
+        [Fact]
         public void TestInvalidRegisternummerNotDigits()
         {
             var b = new StringBuilder(KontonummerValidator.REGISTERNUMMER_NUM_DIGITS);
@@ -103,7 +102,7 @@ namespace NoCommons.Tests.Banking
             try
             {
                 KontonummerValidator.ValidateRegisternummerSyntax(b.ToString());
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -111,7 +110,7 @@ namespace NoCommons.Tests.Banking
             }
         }
 
-        [Test]
+        [Fact]
         public void TestInvalidRegisternummerWrongLength()
         {
             var b = new StringBuilder(KontonummerValidator.REGISTERNUMMER_NUM_DIGITS + 1);
@@ -122,7 +121,7 @@ namespace NoCommons.Tests.Banking
             try
             {
                 KontonummerValidator.ValidateRegisternummerSyntax(b.ToString());
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -130,27 +129,29 @@ namespace NoCommons.Tests.Banking
             }
         }
 
-        [Test]
+        [Fact]
         public void TestGetValidKontonummerFromInvalidKontonummerWrongChecksum()
         {
             Kontonummer knr = KontonummerValidator.GetAndForceValidKontonummer(KONTONUMMER_INVALID_CHECKSUM);
-            Assert.IsTrue(KontonummerValidator.IsValid(knr.ToString()));
+            Assert.True(KontonummerValidator.IsValid(knr.ToString()));
         }
 
-        [Test]
+        [Fact]
         public void TestIsValid()
         {
-            Assert.IsTrue(KontonummerValidator.IsValid(KONTONUMMER_VALID));
-            Assert.IsFalse(KontonummerValidator.IsValid(KONTONUMMER_INVALID_CHECKSUM));
+            Assert.True(KontonummerValidator.IsValid(KONTONUMMER_VALID));
+            Assert.False(KontonummerValidator.IsValid(KONTONUMMER_INVALID_CHECKSUM));        
         }
 
-        [TestCase("97104133219")]
-        [TestCase("97105302049")]
-        [TestCase("97104008309")]
-        [TestCase("97102749069")]
+        [Theory]
+        [InlineData("97104133219")]
+        [InlineData("97105302049")]
+        [InlineData("97104008309")]
+        [InlineData("97102749069")]
         public void TestValidNumberEndingOn9(string kontonrEndingOn9)
         {
-            Assert.IsTrue(KontonummerValidator.IsValid(kontonrEndingOn9));
+            Assert.True(KontonummerValidator.IsValid(kontonrEndingOn9));
         }
     }
 }
+

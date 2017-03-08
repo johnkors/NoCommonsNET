@@ -1,11 +1,10 @@
 using System;
-using NUnit.Framework;
+using Xunit;
 using NoCommons.Banking;
 using NoCommons.Common;
 
 namespace NoCommons.Tests.Banking
 {
-    [TestFixture]
     public class KidnummerValidatorTests
     {
         private const string KIDNUMMER_VALID_MOD10 = "2345676";
@@ -16,72 +15,72 @@ namespace NoCommons.Tests.Banking
         
         protected void assertMessageContains(ArgumentException e, String message)
         {
-            Assert.IsTrue(e.Message.Contains(message));
+            Assert.True(e.Message.Contains(message));
         }
 
-        [Test]
+        [Fact]
         public void testInvalidKidnummer() {
             try {
                 KidnummerValidator.ValidateSyntax("");
-                Assert.Fail();
+                Assert.True(false);
             } catch (ArgumentException e) {
                 assertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidKidnummerNotDigits() {
             try {
                 KidnummerValidator.ValidateSyntax("abcdefghijk");
-                Assert.Fail();
+                Assert.True(false);
             } catch (ArgumentException e) {
                 assertMessageContains(e, StringNumberValidator.ERROR_SYNTAX);
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidKidnummerTooShort() {
             try {
                 KidnummerValidator.ValidateSyntax(KIDNUMMER_INVALID_LENGTH_SHORT);
-                Assert.Fail();
+                Assert.True(false);
             } catch (ArgumentException e) {
                 assertMessageContains(e, KidnummerValidator.ERROR_LENGTH);
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidKidnummerTooLong() {
             try {
                 KidnummerValidator.ValidateSyntax(KIDNUMMER_INVALID_LENGTH_LONG);
-                Assert.Fail();
+                Assert.True(false);
             } catch (ArgumentException e) {
                 assertMessageContains(e, KidnummerValidator.ERROR_LENGTH);
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidKidnummerWrongChecksum() {
             try {
                 KidnummerValidator.ValidateChecksum(KIDNUMMER_INVALID_CHECKSUM);
-                Assert.Fail();
+                Assert.True(false);
             } catch (ArgumentException e) {
                 assertMessageContains(e, StringNumberValidator.ERROR_INVALID_CHECKSUM);
             }
         }
 
-        [Test]
+        [Fact]
         public void testIsValidMod10() {
-            Assert.IsTrue(KidnummerValidator.IsValid(KIDNUMMER_VALID_MOD10));
+            Assert.True(KidnummerValidator.IsValid(KIDNUMMER_VALID_MOD10));
         }
 
-        [Test]
+        [Fact]
         public void testIsValidMod11() {
-            Assert.IsTrue(KidnummerValidator.IsValid(KIDNUMMER_VALID_MOD11));
+            Assert.True(KidnummerValidator.IsValid(KIDNUMMER_VALID_MOD11));
         }
 
-        [Test]
+        [Fact]
         public void testIsInvalid() {
-            Assert.IsFalse(KidnummerValidator.IsValid(KIDNUMMER_INVALID_CHECKSUM));
+            Assert.False(KidnummerValidator.IsValid(KIDNUMMER_INVALID_CHECKSUM));
         }
     }
 }

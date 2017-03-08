@@ -1,5 +1,5 @@
 using System;
-using NUnit.Framework;
+using Xunit;
 
 namespace NoCommons.Tests
 {
@@ -8,7 +8,9 @@ namespace NoCommons.Tests
         public static void AssertMessageContains(ArgumentException argumentException, string errorSyntax)
         {
             bool containsText = argumentException.Message.Contains(errorSyntax);
-            Assert.IsTrue(containsText);
+            Assert.True(containsText);
         }
+
+        
     }
 }
