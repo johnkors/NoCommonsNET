@@ -1,8 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.6</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3</TargetFrameworks>
     <AssemblyName>NoCommons</AssemblyName>
     <PackageId>NoCommons</PackageId>
-    <PackageVersion>1.1.0</PackageVersion>
+    <PackageVersion>1.2.0</PackageVersion>
+    <Authors>John Korsnes</Authors>
+    <Description>NoCommons er en samling hjelpeklasser for validering, generering og manipulering data knyttet til Norske domener. </Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Built with dotnet core 1.0.1 SDK</PackageReleaseNotes>
+    <PackageTags>norway norwegian kontonummer fodselsnummer kidnummer organisasjonsnummer validation generators calculator holidays easter christmas</PackageTags>
   </PropertyGroup>
  </Project>
