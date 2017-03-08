@@ -1,19 +1,18 @@
-﻿using System;
-using NUnit.Framework;
+using System;
+using Xunit;
 using NoCommons.Person;
 
 namespace NoCommons.Tests.Person
 {
-    [TestFixture]
     public class FodselsnummerValidatorTests
     {
-        [Test]
+        [Fact]
         public void testInvalidFodselsnummerWrongLength()
         {
             try
             {
                 FodselsnummerValidator.ValidateSyntax("0123456789");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -21,13 +20,13 @@ namespace NoCommons.Tests.Person
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidFodselsnummerNotDigits()
         {
             try
             {
                 FodselsnummerValidator.ValidateSyntax("abcdefghijk");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -35,13 +34,13 @@ namespace NoCommons.Tests.Person
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidIndividnummer()
         {
             try
             {
                 FodselsnummerValidator.validateIndividnummer("01015780000");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -49,13 +48,13 @@ namespace NoCommons.Tests.Person
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidDateMonthMax()
         {
             try
             {
                 FodselsnummerValidator.validateDate("01130400000");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -63,13 +62,13 @@ namespace NoCommons.Tests.Person
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidDateMonthMin()
         {
             try
             {
                 FodselsnummerValidator.validateDate("01000400000");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -77,13 +76,13 @@ namespace NoCommons.Tests.Person
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidDateDayMin()
         {
             try
             {
                 FodselsnummerValidator.validateDate("00120467800");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -91,13 +90,13 @@ namespace NoCommons.Tests.Person
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidDateDayMax()
         {
             try
             {
                 FodselsnummerValidator.validateDate("32120400000");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -105,13 +104,13 @@ namespace NoCommons.Tests.Person
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidDateLeapDay()
         {
             try
             {
                 FodselsnummerValidator.validateDate("29020700000");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -119,13 +118,13 @@ namespace NoCommons.Tests.Person
             }
         }
 
-        [Test]
+        [Fact]
         public void testInvalidFodselsnummerChecksum()
         {
             try
             {
                 FodselsnummerValidator.validateChecksums("01010101010");
-                Assert.Fail();
+                Assert.True(false);
             }
             catch (ArgumentException e)
             {
@@ -133,25 +132,25 @@ namespace NoCommons.Tests.Person
             }
         }
 
-        [Test]
+        [Fact]
         public void testValidLeapDay()
         {
-            Assert.IsTrue(FodselsnummerValidator.IsValid("29029633310"));
+            Assert.True(FodselsnummerValidator.IsValid("29029633310"));
         }
 
-        [Test]
+        [Fact]
         public void testIsValid()
         {
-            Assert.IsTrue(FodselsnummerValidator.IsValid("01010101006"));
+            Assert.True(FodselsnummerValidator.IsValid("01010101006"));
         }
 
-        [Test]
+        [Fact]
         public void testDNumberIsValid()
         {
-            Assert.IsTrue(FodselsnummerValidator.IsValid("47086303651"));
+            Assert.True(FodselsnummerValidator.IsValid("47086303651"));
         }
 
-        [Test]
+        [Fact]
         public void testGetDNumber()
         {
             FodselsnummerValidator.getFodselsnummer("47086303651");
