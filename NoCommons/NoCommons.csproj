@@ -3,7 +3,7 @@
     <TargetFrameworks>netstandard1.3;net46</TargetFrameworks>
     <AssemblyName>NoCommons</AssemblyName>
     <PackageId>NoCommons</PackageId>
-    <PackageVersion>1.2.0</PackageVersion>
+    <PackageVersion>1.2.1</PackageVersion>
     <Authors>John Korsnes</Authors>
     <Description>NoCommons er en samling hjelpeklasser for validering, generering og manipulering data knyttet til Norske domener. </Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
