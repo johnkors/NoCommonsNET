@@ -1,1 +1,1 @@
-nuget push nocommons/build/NoCommons.1.2.2.nupkg
+nuget push nocommons/build/NoCommons.1.2.3.nupkg

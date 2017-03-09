@@ -3,11 +3,12 @@
     <TargetFrameworks>netstandard1.3;net46;net45</TargetFrameworks>
     <AssemblyName>NoCommons</AssemblyName>
     <PackageId>NoCommons</PackageId>
-    <PackageVersion>1.2.2</PackageVersion>
+    <PackageVersion>1.2.3</PackageVersion>
     <Authors>John Korsnes</Authors>
     <Description>NoCommons er en samling hjelpeklasser for validering, generering og manipulering data knyttet til Norske domener. </Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Built with dotnet core 1.0.1 SDK</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/johnkors/NoCommonsNET/media/static/norge.512x512.png</PackageIconUrl>
     <PackageTags>norway norwegian kontonummer fodselsnummer kidnummer organisasjonsnummer validation generators calculator holidays easter christmas</PackageTags>
   </PropertyGroup>
  </Project>
