@@ -15,6 +15,7 @@ namespace NoCommons.Person
         private const string DATE_FORMAT = "ddMMyyyy";
 
         private static readonly int[] K1_WEIGHTS = new [] { 2, 5, 4, 9, 8, 1, 6, 7, 3 };
+        private static readonly int[] K2_WEIGHTS = new int[] { 2, 3, 4, 5, 6, 7, 2, 3, 4, 5 };
 
         public const string ERROR_INVALID_DATE = "Invalid date in fødselsnummer : ";
 
@@ -88,7 +89,7 @@ namespace NoCommons.Person
         }
 
         internal static int CalculateSecondChecksumDigit(Fodselsnummer fodselsnummer) {
-            return CalculateMod11CheckSum(GetMod11Weights(fodselsnummer), fodselsnummer);
+            return CalculateMod11CheckSum(K2_WEIGHTS, fodselsnummer);
         }
     }
 }
