@@ -37,15 +37,22 @@ namespace NoCommons.Person
          * @param date The Date instance
          * @return A List with Fodelsnummer instances
          */
-        public static List<Fodselsnummer> getManyFodselsnummerForDate(DateTime date)
+        public static List<Fodselsnummer> getManyFodselsnummerForDate(DateTime date, bool dNumber = false)
         {
             if (date == null)
             {
                 throw new ArgumentException();
             }
             var century = getCentury(date);
+            
             var dateString = date.ToString("ddMMyy");
-            var result = new List<Fodselsnummer>();
+            if (dNumber)
+            {
+                var day = date.Day + 40;
+                dateString = $"{day}{date.ToString("MMyy")}";
+            }
+
+                var result = new List<Fodselsnummer>();
             for (int i = 999; i >= 0; i--)
             {
                 var sb = new StringBuilder(dateString);

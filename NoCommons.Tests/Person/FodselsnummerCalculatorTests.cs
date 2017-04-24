@@ -31,9 +31,25 @@ namespace NoCommons.Tests.Person
         }
 
         [Fact]
+        public void getValidFodselsnummerForDNumberDate()
+        {
+            List<Fodselsnummer> validOptions = FodselsnummerCalculator.getManyFodselsnummerForDate(date, true);
+            Assert.True(validOptions.Count == 413, "Forventet 412 fødselsnumre som er d-nummer, men fikk " + validOptions.Count);
+        }
+
+        [Fact]
         public void testThatAllGeneratedNumbersAreValid()
         {
             foreach (Fodselsnummer fnr in FodselsnummerCalculator.getManyFodselsnummerForDate(date))
+            {
+                Assert.True(FodselsnummerValidator.IsValid(fnr.ToString()), "Ugyldig fødselsnummer: " + fnr);
+            }
+        }
+
+        [Fact]
+        public void testThatAllGeneratedDFodselsnumbersAreValid()
+        {
+            foreach (Fodselsnummer fnr in FodselsnummerCalculator.getManyFodselsnummerForDate(date, true))
             {
                 Assert.True(FodselsnummerValidator.IsValid(fnr.ToString()), "Ugyldig fødselsnummer: " + fnr);
             }
