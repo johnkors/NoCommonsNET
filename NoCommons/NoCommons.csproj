@@ -3,11 +3,11 @@
     <TargetFrameworks>netstandard1.3;net46;net45</TargetFrameworks>
     <AssemblyName>NoCommons</AssemblyName>
     <PackageId>NoCommons</PackageId>
-    <PackageVersion>1.2.5</PackageVersion>
+    <PackageVersion>1.2.6</PackageVersion>
     <Authors>John Korsnes</Authors>
     <Description>Hjelpeklasser for validering og generering av data tilknyttet norske domener. </Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Built with dotnet core 1.0.1 SDK</PackageReleaseNotes>
+    <PackageReleaseNotes>Generering av fødselsnummere som er d-nummere. </PackageReleaseNotes>
     <PackageIconUrl>https://raw.githubusercontent.com/johnkors/NoCommonsNET/media/static/norge.512x512.png</PackageIconUrl>
     <PackageTags>norway norwegian kontonummer fodselsnummer kidnummer organisasjonsnummer validation generators calculator holidays easter christmas</PackageTags>
   </PropertyGroup>
