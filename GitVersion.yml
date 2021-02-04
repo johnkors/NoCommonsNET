@@ -5,13 +5,13 @@ branches:
     tag: ""
   feature:
     regex: ^features?[/-]|(?!^master$|^(hotfix|bugfix)(es)?[/-]|^support[/-]|(^(pull|pull\-requests|pr)[/-]))(^.*$)
-    mode: Mainline
+    mode: ContinuousDeployment
     tag: "feature"
   pull-request:
     tag: "pull"
-    mode: Mainline
+    mode: ContinuousDeployment
   hotfix:
     regex: ^(hotfix|bugfix)(es)?[/-]
-    mode: Mainline
+    mode: ContinuousDeployment
     increment: Inherit
     tag: "bug"
