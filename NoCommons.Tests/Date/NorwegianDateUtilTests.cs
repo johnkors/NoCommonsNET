@@ -12,7 +12,7 @@ namespace NoCommons.Tests.Date
         public void testAdd2DaysWithinSameWeek()
         {
             var date = new DateTime(2007,3,21);
-            var newDate = NorwegianDateUtil.addWorkingDaysToDate(date, 2);
+            var newDate = NorwegianDateUtil.AddWorkingDaysToDate(date, 2);
 
             Assert.Equal(23, newDate.Day);
         }
@@ -21,7 +21,7 @@ namespace NoCommons.Tests.Date
         public void testAdd2DaysToLastDayOfMonth()
         {
             var date = new DateTime(2007, 2, 28);
-            var newDate = NorwegianDateUtil.addWorkingDaysToDate(date, 2);
+            var newDate = NorwegianDateUtil.AddWorkingDaysToDate(date, 2);
 
             Assert.Equal(2, newDate.Day);
             Assert.Equal(3, newDate.Month);
@@ -31,7 +31,7 @@ namespace NoCommons.Tests.Date
         public void testAdd5DaysWithNoHolidays()
         {
             var date = new DateTime(2007, 03, 21);
-            var newDate = NorwegianDateUtil.addWorkingDaysToDate(date, 5);
+            var newDate = NorwegianDateUtil.AddWorkingDaysToDate(date, 5);
 
             Assert.Equal(28, newDate.Day);
         }
@@ -40,7 +40,7 @@ namespace NoCommons.Tests.Date
         public void testAdd5DaysBeforeEasterHoliday()
         {
             var date = new DateTime(2007, 4, 4);
-            var newDate = NorwegianDateUtil.addWorkingDaysToDate(date, 5);
+            var newDate = NorwegianDateUtil.AddWorkingDaysToDate(date, 5);
 
             Assert.Equal(16, newDate.Day);
         }
@@ -49,7 +49,7 @@ namespace NoCommons.Tests.Date
         public void testAdd5DaysBeforeNationalDay()
         {
             var date = new DateTime(2007, 5, 16);
-            var newDate = NorwegianDateUtil.addWorkingDaysToDate(date, 5);
+            var newDate = NorwegianDateUtil.AddWorkingDaysToDate(date, 5);
 
             Assert.Equal(24, newDate.Day);
         }
@@ -58,7 +58,7 @@ namespace NoCommons.Tests.Date
         public void testAdd5DaysBeforeChristmas()
         {
             var date = new DateTime(2007, 12, 21);
-            var newDate =  NorwegianDateUtil.addWorkingDaysToDate(date, 5);
+            var newDate =  NorwegianDateUtil.AddWorkingDaysToDate(date, 5);
 
             Assert.Equal(2, newDate.Day);
             Assert.Equal(1, newDate.Month);
@@ -68,10 +68,10 @@ namespace NoCommons.Tests.Date
         [Fact]
         public void testWorkingDays()
         {
-            Assert.False(NorwegianDateUtil.isWorkingDay(new DateTime(2007,3,25)), "Sunday not working day");
-            Assert.True(NorwegianDateUtil.isWorkingDay(new DateTime(2007, 3, 26)), "Monday is working day");
-            Assert.False(NorwegianDateUtil.isWorkingDay(new DateTime(2007,1,1)), "New years day not working day");
-            Assert.False(NorwegianDateUtil.isWorkingDay(new DateTime(2007,4,8)), "Easter day not working day");
+            Assert.False(NorwegianDateUtil.IsWorkingDay(new DateTime(2007,3,25)), "Sunday not working day");
+            Assert.True(NorwegianDateUtil.IsWorkingDay(new DateTime(2007, 3, 26)), "Monday is working day");
+            Assert.False(NorwegianDateUtil.IsWorkingDay(new DateTime(2007,1,1)), "New years day not working day");
+            Assert.False(NorwegianDateUtil.IsWorkingDay(new DateTime(2007,4,8)), "Easter day not working day");
         }
 
         [Fact]
@@ -109,7 +109,7 @@ namespace NoCommons.Tests.Date
         public void testGetAllNorwegianHolidaysForYear()
         {
             const string format = "dd.MM.yyyy";
-            var holidays = NorwegianDateUtil.getHolidays(2008);
+            var holidays = NorwegianDateUtil.GetHolidays(2008);
             Assert.Equal(12, holidays.Count());
             Assert.Equal("01.01.2008", holidays.ElementAt(0).ToString(format));
             Assert.Equal("16.03.2008", holidays.ElementAt(1).ToString(format));
@@ -125,10 +125,10 @@ namespace NoCommons.Tests.Date
             Assert.Equal("26.12.2008", holidays.ElementAt(11).ToString(format));
         }
 
-        private void checkHoliday(String date)
+        private void checkHoliday(string date)
         {
             var dateTime = DateTime.ParseExact(date, "dd.MM.yyyy", CultureInfo.InvariantCulture);
-            Assert.True(NorwegianDateUtil.isHoliday(dateTime));
+            Assert.True(NorwegianDateUtil.IsHoliday(dateTime));
         }
     }
 }

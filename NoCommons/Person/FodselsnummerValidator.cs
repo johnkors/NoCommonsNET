@@ -17,20 +17,20 @@ namespace NoCommons.Person
         private static readonly int[] K1_WEIGHTS = new [] { 2, 5, 4, 9, 8, 1, 6, 7, 3 };
         private static readonly int[] K2_WEIGHTS = new int[] { 2, 3, 4, 5, 6, 7, 2, 3, 4, 5 };
 
-        public const string ERROR_INVALID_DATE = "Invalid date in fødselsnummer : ";
+        public const string ERROR_INVALID_DATE = "Invalid date in fï¿½dselsnummer : ";
 
-        public const string ERROR_INVALID_INDIVIDNUMMER = "Invalid individnummer in fødselsnummer : ";
+        public const string ERROR_INVALID_INDIVIDNUMMER = "Invalid individnummer in fï¿½dselsnummer : ";
 
         /**
 	     * Returns an object that represents a Fodselsnummer.
 	     * 
 	     * @param fodselsnummer
-	     *            A String containing a Fodselsnummer
+	     *            A string containing a Fodselsnummer
 	     * @return A Fodselsnummer instance
 	     * @throws ArgumentException
-	     *             thrown if String contains an invalid Fodselsnummer
+	     *             thrown if string contains an invalid Fodselsnummer
 	     */
-        public static Fodselsnummer getFodselsnummer(String fodselsnummer) {
+        public static Fodselsnummer getFodselsnummer(string fodselsnummer) {
             ValidateSyntax(fodselsnummer);
             validateIndividnummer(fodselsnummer);
             validateDate(fodselsnummer);
@@ -39,13 +39,13 @@ namespace NoCommons.Person
         }
 
         /**
-	     * Return true if the provided String is a valid Fodselsnummer.
+	     * Return true if the provided string is a valid Fodselsnummer.
 	     * 
 	     * @param fodselsnummer
-	     *            A String containing a Fodselsnummer
+	     *            A string containing a Fodselsnummer
 	     * @return true or false
 	     */
-        public static bool IsValid(String fodselsnummer) {
+        public static bool IsValid(string fodselsnummer) {
             try {
                 getFodselsnummer(fodselsnummer);
                 return true;
@@ -58,28 +58,28 @@ namespace NoCommons.Person
             ValidateLengthAndAllDigits(fodselsnummer, LENGTH);
         }
 
-        public static void validateIndividnummer(String fodselsnummer) {
+        public static void validateIndividnummer(string fodselsnummer) {
             var fnr = new Fodselsnummer(fodselsnummer);
-            if (fnr.getCentury() == null) {
+            if (fnr.GetCentury() == null) {
                 throw new ArgumentException(ERROR_INVALID_INDIVIDNUMMER + fodselsnummer);
             }
         }
 
-        public static void validateDate(String fodselsnummer) {
+        public static void validateDate(string fodselsnummer) {
             var fnr = new Fodselsnummer(fodselsnummer);
             try {
-                var dateString = fnr.getDateAndMonth() + fnr.getCentury() + fnr.get2DigitBirthYear();
+                var dateString = fnr.GetDateAndMonth() + fnr.GetCentury() + fnr.Get2DigitBirthYear();
                 DateTime.ParseExact(dateString, DATE_FORMAT, CultureInfo.InvariantCulture, DateTimeStyles.None);
             } catch (Exception) {
                 throw new ArgumentException(ERROR_INVALID_DATE + fodselsnummer);
             }
         }
 
-        public static void validateChecksums(String fodselsnummer) {
+        public static void validateChecksums(string fodselsnummer) {
             var fnr = new Fodselsnummer(fodselsnummer);
             int k1 = CalculateFirstChecksumDigit(fnr);
             int k2 = CalculateSecondChecksumDigit(fnr);
-            if (k1 != fnr.getChecksumDigit1() || k2 != fnr.getChecksumDigit2()) {
+            if (k1 != fnr.GetChecksumDigit1() || k2 != fnr.GetChecksumDigit2()) {
                 throw new ArgumentException(ERROR_INVALID_CHECKSUM + fodselsnummer);
             }
         }

@@ -13,13 +13,13 @@ namespace NoCommons.Banking
         public const string ERROR_LENGTH = "A Kidnummer is between 2 and 25 digits";
 
         /**
-	     * Return true if the provided String is a valid KID-nummmer.
+	     * Return true if the provided string is a valid KID-nummmer.
 	     * 
 	     * @param kidnummer
-	     *            A String containing a Kidnummer
+	     *            A string containing a Kidnummer
 	     * @return true or false
 	     */
-        public static bool IsValid(String kidnummer) {
+        public static bool IsValid(string kidnummer) {
             try {
                 GetKidnummer(kidnummer);
                 return true;
@@ -32,10 +32,10 @@ namespace NoCommons.Banking
 	     * Returns an object that represents a Kidnummer.
 	     * 
 	     * @param kidnummer
-	     *            A String containing a Kidnummer
+	     *            A string containing a Kidnummer
 	     * @return A Kidnummer instance
 	     * @throws IllegalArgumentException
-	     *             thrown if String contains an invalid Kidnummer
+	     *             thrown if string contains an invalid Kidnummer
 	     */
         public static Kidnummer GetKidnummer(string kidnummer) {
             ValidateSyntax(kidnummer);
@@ -54,7 +54,7 @@ namespace NoCommons.Banking
             }
         }
 
-        internal static void ValidateChecksum(String kidnummer) {
+        internal static void ValidateChecksum(string kidnummer) {
             StringNumber k = new Kidnummer(kidnummer);
             int kMod10 = CalculateMod10CheckSum(GetMod10Weights(k), k);
             int kMod11 = CalculateMod11CheckSum(GetMod11Weights(k), k);

@@ -11,7 +11,7 @@ namespace NoCommons.Person
      */
     public class Fodselsnummer : StringNumber {
 
-        public Fodselsnummer(String fodselsnummer) : base(fodselsnummer) {
+        public Fodselsnummer(string fodselsnummer) : base(fodselsnummer) {
 		
         }
 
@@ -19,45 +19,45 @@ namespace NoCommons.Person
 	        * Returns the first 4 digits of the Fodselsnummer that contains the date
 	        * (01-31) and month(01-12) of birth.
 	        *
-	        * @return A String containing the date and month of birth.
+	        * @return A string containing the date and month of birth.
 	        */
-        public String getDateAndMonth() {
-	        return parseDNumber(GetValue()).Substring(0, 4);
+        public string GetDateAndMonth() {
+	        return ParseDNumber(GetValue()).Substring(0, 4);
         }
 
         /**
 	        * Returns the first 2 digits of the Fodselsnummer that contains the date
 	        * (01-31), stripped for eventual d-numbers.
 	        *
-	        * @return A String containing the date of birth
+	        * @return A string containing the date of birth
 	        */
-        public String getDayInMonth() {
-	        return parseDNumber(GetValue()).Substring(0, 2);
+        public string GetDayInMonth() {
+	        return ParseDNumber(GetValue()).Substring(0, 2);
         }
 
         /**
 	        * Returns the digits 3 and 4 of the Fodselsnummer that contains the month
 	        * (01-12), stripped for eventual d-numbers.
 	        *
-	        * @return A String containing the date of birth
+	        * @return A string containing the date of birth
 	        */
-        public String getMonth() {
-	        return parseDNumber(GetValue()).Substring(2, 2);
+        public string GetMonth() {
+	        return ParseDNumber(GetValue()).Substring(2, 2);
         }
 
         /**
 	        * Returns the birthyear of the Fodselsnummer
 	        *
-	        * @return A String containing the year of birth.
+	        * @return A string containing the year of birth.
 	        */
-        public String getBirthYear() {
-	        return getCentury() + get2DigitBirthYear();
+        public string GetBirthYear() {
+	        return GetCentury() + Get2DigitBirthYear();
         }
 
-        public String getCentury() {
-	        String result = null;
-	        int individnummerInt = int.Parse(getIndividnummer());
-	        int birthYear = int.Parse(get2DigitBirthYear());
+        public string GetCentury() {
+	        string result = null;
+	        int individnummerInt = int.Parse(GetIndividnummer());
+	        int birthYear = int.Parse(Get2DigitBirthYear());
 	        if (individnummerInt <= 499) {
 		        result = "19";
 	        } else if (individnummerInt >= 500 && birthYear < 40) {
@@ -74,9 +74,9 @@ namespace NoCommons.Person
 	        * Returns the two digits of the Fodselsnummer that contains the year birth
 	        * (00-99).
 	        *
-	        * @return A String containing the year of birth.
+	        * @return A string containing the year of birth.
 	        */
-        public String get2DigitBirthYear() {
+        public string Get2DigitBirthYear() {
 	        return GetValue().Substring(4, 2);
         }
 
@@ -84,10 +84,10 @@ namespace NoCommons.Person
 	        * Returns the first 6 digits of the Fodselsnummer that contains the date
 	        * (01-31), month(01-12) and year(00-99) of birth.
 	        *
-	        * @return A String containing the date and month of birth.
+	        * @return A string containing the date and month of birth.
 	        */
-        public String getDateOfBirth() {
-	        return parseDNumber(GetValue()).Substring(0, 6);
+        public string GetDateOfBirth() {
+	        return ParseDNumber(GetValue()).Substring(0, 6);
         }
 
         /**
@@ -95,9 +95,9 @@ namespace NoCommons.Person
 	        * Personnummer. The Personnummer consists of the Individnummer (3 digits)
 	        * and two checksum digits.
 	        *
-	        * @return A String containing the Personnummer.
+	        * @return A string containing the Personnummer.
 	        */
-        public String getPersonnummer() {
+        public string GetPersonnummer() {
 	        return GetValue().Substring(6);
         }
 
@@ -105,9 +105,9 @@ namespace NoCommons.Person
 	        * Returns the first three digits of the Personnummer, also known as the
 	        * Individnummer.
 	        *
-	        * @return A String containing the Individnummer.
+	        * @return A string containing the Individnummer.
 	        */
-        public String getIndividnummer() {
+        public string GetIndividnummer() {
 	        return GetValue().Substring(6, 3);
         }
 
@@ -116,7 +116,7 @@ namespace NoCommons.Person
 	        *
 	        * @return The digit.
 	        */
-        public int getGenderDigit() {
+        public int GetGenderDigit() {
 	        return GetAt(8);
         }
 
@@ -125,7 +125,7 @@ namespace NoCommons.Person
 	        *
 	        * @return The digit.
 	        */
-        public int getChecksumDigit1() {
+        public int GetChecksumDigit1() {
 	        return GetAt(9);
         }
 
@@ -134,7 +134,7 @@ namespace NoCommons.Person
 	        *
 	        * @return The digit.
 	        */
-        public int getChecksumDigit2() {
+        public int GetChecksumDigit2() {
 	        return GetAt(10);
         }
 
@@ -143,8 +143,8 @@ namespace NoCommons.Person
 	        *
 	        * @return true or false.
 	        */
-        public bool isMale() {
-	        return getGenderDigit() % 2 != 0;
+        public bool IsMale() {
+	        return GetGenderDigit() % 2 != 0;
         }
 
         /**
@@ -152,13 +152,13 @@ namespace NoCommons.Person
 	        *
 	        * @return true or false.
 	        */
-        public bool isFemale() {
-	        return !isMale();
+        public bool IsFemale() {
+	        return !IsMale();
         }
 
-        public static bool isDNumber(string fodselsnummer) {
+        public static bool IsDNumber(string fodselsnummer) {
 	        try {
-		        int firstDigit = getFirstDigit(fodselsnummer);
+		        int firstDigit = GetFirstDigit(fodselsnummer);
 		        if (firstDigit > 3 && firstDigit < 8) {
 			        return true;
 		        }
@@ -168,20 +168,20 @@ namespace NoCommons.Person
 	        return false;
         }
 
-        public static string parseDNumber(string fodselsnummer) {
-	        if (!isDNumber(fodselsnummer)) {
+        public static string ParseDNumber(string fodselsnummer) {
+	        if (!IsDNumber(fodselsnummer)) {
 		        return fodselsnummer;
 	        } else {
-		        return (getFirstDigit(fodselsnummer) - 4) + fodselsnummer.Substring(1);
+		        return (GetFirstDigit(fodselsnummer) - 4) + fodselsnummer.Substring(1);
 	        }
         }
 
-        private static int getFirstDigit(String fodselsnummer) {
+        private static int GetFirstDigit(string fodselsnummer) {
 	        return int.Parse(fodselsnummer.Substring(0, 1));
         }
 
-        public KJONN getKjonn() {
-	        if (isFemale()) {
+        public KJONN GetKjonn() {
+	        if (IsFemale()) {
 		        return KJONN.KVINNE;
 	        } else {
 		        return KJONN.MANN;

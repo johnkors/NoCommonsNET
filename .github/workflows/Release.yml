@@ -32,7 +32,7 @@ jobs:
         with:
           useConfigFile: true
       - name: Pack
-        run: dotnet pack --no-build /p:Version=${{ steps.gitversion.outputs.NuGetVersionV2 }} /p:InformationalVersion=${{ steps.gitversion.outputs.informationalVersion }} -o ./releases
+        run: dotnet pack --no-build /p:Version=${{ steps.gitversion.outputs.NuGetVersionV2 }} /p:InformationalVersion=${{ steps.gitversion.outputs.informationalVersion }} /p:PackageReleaseNotes="https://github.com/johnkors/NoCommonsNET/releases/tag/${{ steps.gitversion.outputs.NuGetVersionV2 }}" -o ./releases
       - name: Publish
         run: dotnet nuget push ./releases/NoCommons.${{ steps.gitversion.outputs.NuGetVersionV2 }}.nupkg -k=${{ secrets.NUGETORGAPIKEY }} -s=nuget.org
       - run: git log $(git describe --tags --abbrev=0)..HEAD --oneline
