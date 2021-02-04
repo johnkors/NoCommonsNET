@@ -12,6 +12,7 @@ ProjectSection(SolutionItems) = preProject
 	.github\FUNDING.yml = .github\FUNDING.yml
 	.github\workflows\CI.yml = .github\workflows\CI.yml
 	.github\workflows\Release.yml = .github\workflows\Release.yml
+	GitVersion.yml = GitVersion.yml
 EndProjectSection
 EndProject
 Global
