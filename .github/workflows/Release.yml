@@ -35,5 +35,5 @@ jobs:
     - name: Pack
       run: dotnet pack --no-build /p:Version=1.2.7-pre001 /p:InformationalVersion=1.2.7-pre001-lolformation -o ./releases
     - name: Publish
-      run: dotnet nuget push nocommons/build/NoCommons.1.2.7-pre001.nupkg -Source https://www.nuget.org/api/v2/package -ApiKey ${{ secrets.NUGETORGAPIKEY }}
+      run: dotnet nuget push ./releases/NoCommons.1.2.7-pre001.nupkg -ApiKey ${{ secrets.NUGETORGAPIKEY }}
 
