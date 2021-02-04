@@ -36,4 +36,22 @@ jobs:
       run: dotnet pack --no-build /p:Version=${{ steps.gitversion.outputs.fullSemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.informationalVersion }} -o ./releases
     - name: Publish
       run: dotnet nuget push ./releases/NoCommons.1.2.7-pre001.nupkg -k=${{ secrets.NUGETORGAPIKEY }} -s=nuget.org
+    - run: git log $(git describe --tags --abbrev=0)..HEAD --oneline
+    - name: Log commit messages since last release
+      id: releasenotes
+      run: |
+       echo 'RELEASE_NOTES<<EOF' >> $GITHUB_ENV
+       git log $(git describe --tags --abbrev=0)..HEAD --oneline >> $GITHUB_ENV
+       echo 'EOF' >> $GITHUB_ENV
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+       tag_name: ${{ steps.gitversion.outputs.majorMinorPatch }}
+       release_name: Release ${{ steps.gitversion.outputs.majorMinorPatch }}
+       body: ${{ env.RELEASE_NOTES }}
+       draft: false
+       prerelease: false
 
