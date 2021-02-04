@@ -1,8 +1,8 @@
 branches:
   master:
     regex: ^master$
-    mode: ContinuousDelivery
-    tag: "pre"
+    mode: ContinuousDeployment
+    tag: ""
   feature:
     regex: ^features?[/-]|(?!^master$|^(hotfix|bugfix)(es)?[/-]|^support[/-]|(^(pull|pull\-requests|pr)[/-]))(^.*$)
     mode: ContinuousDeployment
