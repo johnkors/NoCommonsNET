@@ -36,7 +36,7 @@ namespace NoCommons.Banking
 	     * for a given AccountType.
 	     * 
 	     * @param accountType
-	     *            A String representing the AccountType to use for all
+	     *            A string representing the AccountType to use for all
 	     *            Kontonummer instances
 	     * @param length
 	     *            Specifies the number of Kontonummer instances to create in the
@@ -55,7 +55,7 @@ namespace NoCommons.Banking
 	     * for a given Registernummer.
 	     * 
 	     * @param registernummer
-	     *            A String representing the Registernummer to use for all
+	     *            A string representing the Registernummer to use for all
 	     *            Kontonummer instances
 	     * @param length
 	     *            Specifies the number of Kontonummer instances to create in the
@@ -98,7 +98,7 @@ namespace NoCommons.Banking
 
         private readonly string _accountType;
 
-        internal AccountTypeKontonrDigitGenerator(String accountType)
+        internal AccountTypeKontonrDigitGenerator(string accountType)
         {
             _accountType = accountType;
         }
@@ -129,7 +129,7 @@ namespace NoCommons.Banking
     {
         private readonly string _registerNr;
 
-        internal RegisternummerKontonrDigitGenerator(String registerNr)
+        internal RegisternummerKontonrDigitGenerator(string registerNr)
         {
             _registerNr = registerNr;
         }

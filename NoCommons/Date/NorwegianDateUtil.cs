@@ -25,14 +25,14 @@ namespace NoCommons.Date
         /// <param name="date">The original date</param>
         /// <param name="days">The number of working days to add</param>
         /// <returns>The new date</returns>
-        public static DateTime addWorkingDaysToDate(DateTime date, int days)
+        public static DateTime AddWorkingDaysToDate(DateTime date, int days)
         {
 
             var localDate = date;
             for (var i = 0; i < days; i++)
             {
                 localDate = localDate.AddDays(1);
-                while (!isWorkingDay(localDate))
+                while (!IsWorkingDay(localDate))
                 {
                     localDate = localDate.AddDays(1);
                 }
@@ -47,10 +47,10 @@ namespace NoCommons.Date
         /// </summary>
         /// <param name="date">The date to check</param>
         /// <returns>true if the given date is a working day, false otherwise</returns>
-        public static bool isWorkingDay(DateTime date)
+        public static bool IsWorkingDay(DateTime date)
         {
             return date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday
-                   && !isHoliday(date);
+                   && !IsHoliday(date);
         }
 
         /// <summary>
@@ -58,13 +58,13 @@ namespace NoCommons.Date
         /// </summary>
         /// <param name="date">date to check if is a holiday</param>
         /// <returns>true if holiday, false otherwise</returns>
-        public static bool isHoliday(DateTime date)
+        public static bool IsHoliday(DateTime date)
         {
             var year = date.Year;
-            var holidaysForYear = getHolidaySet(year);
+            var holidaysForYear = GetHolidaySet(year);
             foreach (var holiday in holidaysForYear)
             {  
-                if (checkDate(date, holiday))
+                if (CheckDate(date, holiday))
                 {
                     return true;
                 }
@@ -77,9 +77,9 @@ namespace NoCommons.Date
         /// </summary>
         /// <param name="year">The year to get holidays for</param>
         /// <returns>Holidays, sorted by date</returns>
-        public static IEnumerable<DateTime> getHolidays(int year)
+        public static IEnumerable<DateTime> GetHolidays(int year)
         {
-            var days = getHolidaySet(year);
+            var days = GetHolidaySet(year);
             var listOfHolidays = new List<DateTime>(days);
             listOfHolidays.Sort((date1, date2) => date1.CompareTo(date2));
             return listOfHolidays;
@@ -90,7 +90,7 @@ namespace NoCommons.Date
         /// </summary>
         /// <param name="year">The year to get holidays for</param>
         /// <returns>Holidays for year</returns>
-        private static IEnumerable<DateTime> getHolidaySet(int year)
+        private static IEnumerable<DateTime> GetHolidaySet(int year)
         {
             lock (Lock)
             {
@@ -110,7 +110,7 @@ namespace NoCommons.Date
                     yearSet.Add(new DateTime(year, 12, 26));
 
                     // Add movable holidays - based on easter day.
-                    var easterDay = getEasterDay(year);
+                    var easterDay = GetEasterDay(year);
 
                     // Sunday before easter.
                     yearSet.Add(easterDay.AddDays(-7));
@@ -151,7 +151,7 @@ namespace NoCommons.Date
        /// </summary>
        /// <param name="year">year</param>
        /// <returns>easterday for year</returns>
-        private static DateTime getEasterDay(int year)
+        private static DateTime GetEasterDay(int year)
         {
             int a = year%19;
             int b = year/100;
@@ -171,7 +171,7 @@ namespace NoCommons.Date
             return new DateTime(year, n, p + 1);
         }
 
-        private static bool checkDate(DateTime date, DateTime other)
+        private static bool CheckDate(DateTime date, DateTime other)
         {
             return date.Day == other.Day && date.Month == other.Month;
         }

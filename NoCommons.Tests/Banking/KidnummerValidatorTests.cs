@@ -13,7 +13,7 @@ namespace NoCommons.Tests.Banking
         private const string KIDNUMMER_INVALID_LENGTH_SHORT = "1";
         private const string KIDNUMMER_INVALID_LENGTH_LONG = "12345678901234567890123456";
         
-        protected void assertMessageContains(ArgumentException e, String message)
+        protected void assertMessageContains(ArgumentException e, string message)
         {
             Assert.Contains(message, e.Message);
         }

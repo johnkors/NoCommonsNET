@@ -14,19 +14,19 @@ namespace NoCommons.Person
         /**
          * Returns a List with valid Fodselsnummer instances for a given Date and gender.
          */
-        public static List<Fodselsnummer> getFodselsnummerForDateAndGender(DateTime date, KJONN kjonn)
+        public static List<Fodselsnummer> GetFodselsnummerForDateAndGender(DateTime date, KJONN kjonn)
         {
-            List<Fodselsnummer> result = getManyFodselsnummerForDate(date);
-            result = splitByGender(kjonn, result);
+            List<Fodselsnummer> result = GetManyFodselsnummerForDate(date);
+            result = SplitByGender(kjonn, result);
             return result;
         }
 
         /**
          * Return one random valid fodselsnummer on a given date
          */
-        public static Fodselsnummer getFodselsnummerForDate(DateTime date)
+        public static Fodselsnummer GetFodselsnummerForDate(DateTime date)
         {
-            List<Fodselsnummer> fodselsnummerList = getManyFodselsnummerForDate(date);
+            List<Fodselsnummer> fodselsnummerList = GetManyFodselsnummerForDate(date);
             //Collections.shuffle(fodselsnummerList);
             return fodselsnummerList[0];
         }
@@ -37,13 +37,13 @@ namespace NoCommons.Person
          * @param date The Date instance
          * @return A List with Fodelsnummer instances
          */
-        public static List<Fodselsnummer> getManyFodselsnummerForDate(DateTime date, bool dNumber = false)
+        public static List<Fodselsnummer> GetManyFodselsnummerForDate(DateTime date, bool dNumber = false)
         {
             if (date == null)
             {
                 throw new ArgumentException();
             }
-            var century = getCentury(date);
+            var century = GetCentury(date);
             
             var dateString = date.ToString("ddMMyy");
             if (dNumber)
@@ -52,7 +52,7 @@ namespace NoCommons.Person
                 dateString = $"{day}{date.ToString("MMyy")}";
             }
 
-                var result = new List<Fodselsnummer>();
+            var result = new List<Fodselsnummer>();
             for (int i = 999; i >= 0; i--)
             {
                 var sb = new StringBuilder(dateString);
@@ -74,7 +74,7 @@ namespace NoCommons.Person
                     sb.Append(FodselsnummerValidator.CalculateSecondChecksumDigit(fodselsnummer));
                     fodselsnummer = new Fodselsnummer(sb.ToString());
 
-                    var centuryByIndividnummer = fodselsnummer.getCentury();
+                    var centuryByIndividnummer = fodselsnummer.GetCentury();
                     if (centuryByIndividnummer != null && centuryByIndividnummer.Equals(century) && FodselsnummerValidator.IsValid(fodselsnummer.GetValue()))
                     {
                         result.Add(fodselsnummer);
@@ -88,14 +88,14 @@ namespace NoCommons.Person
             return result;
         }
 
-        private static String getCentury(DateTime date)
+        private static string GetCentury(DateTime date)
         {
             return Convert.ToString(date.Year).Substring(0, 2);
         }
 
-        private static List<Fodselsnummer> splitByGender(KJONN kjonn, List<Fodselsnummer> result)
+        private static List<Fodselsnummer> SplitByGender(KJONN kjonn, List<Fodselsnummer> result)
         {
-            return (from f in result where f.getKjonn() == kjonn select f).ToList();
+            return (from f in result where f.GetKjonn() == kjonn select f).ToList();
             
         }
 
