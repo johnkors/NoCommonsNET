@@ -7,10 +7,10 @@
     <Description>Hjelpeklasser for validering og generering av data tilknyttet norske domener. </Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Generering av fødselsnummere som er d-nummere. </PackageReleaseNotes>
-    <PackageIcon>Images\norge.512x512.png</PackageIcon>
+    <PackageIcon>norge.512x512.png</PackageIcon>
     <PackageTags>norway norwegian kontonummer fodselsnummer kidnummer organisasjonsnummer validation generators calculator holidays easter christmas</PackageTags>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Images\norge.512x512.png" Pack="true" PackagePath=""/>
+    <Content Include="Images\norge.512x512.png" Pack="true" PackagePath=""/>
   </ItemGroup>
  </Project>
