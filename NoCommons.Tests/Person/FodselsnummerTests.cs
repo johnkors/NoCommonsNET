@@ -115,24 +115,24 @@ namespace NoCommons.Tests.Person
 
         [Fact]
         public void testIsMale() {
-	        Assert.Equal(false, sut.isMale());
+	        Assert.False(sut.isMale());
         }
 
         [Fact]
         public void testIsMaleDNumber() {
 	        sut = new Fodselsnummer(VALID_D_FODSELSNUMMER);
-	        Assert.Equal(false, sut.isMale());
+	        Assert.False(sut.isMale());
         }
 
         [Fact]
         public void testIsFemale() {
-	        Assert.Equal(true, sut.isFemale());
+	        Assert.True(sut.isFemale());
         }
 
         [Fact]
         public void testIsFemaleDNumber() {
 	        sut = new Fodselsnummer(VALID_D_FODSELSNUMMER);
-	        Assert.Equal(true, sut.isFemale());
+	        Assert.True(sut.isFemale());
         }
 
         [Fact]

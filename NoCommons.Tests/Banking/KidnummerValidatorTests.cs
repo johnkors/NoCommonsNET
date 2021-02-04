@@ -15,7 +15,7 @@ namespace NoCommons.Tests.Banking
         
         protected void assertMessageContains(ArgumentException e, String message)
         {
-            Assert.True(e.Message.Contains(message));
+            Assert.Contains(message, e.Message);
         }
 
         [Fact]

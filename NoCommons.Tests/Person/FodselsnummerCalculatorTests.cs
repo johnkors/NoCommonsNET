@@ -60,7 +60,7 @@ namespace NoCommons.Tests.Person
         {
             date = DateTime.ParseExact("09091853", _dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None);
             List<Fodselsnummer> options = FodselsnummerCalculator.getManyFodselsnummerForDate(date);
-            Assert.Equal(0, options.Count);
+            Assert.Empty(options);
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace NoCommons.Tests.Person
         {
             date = DateTime.ParseExact("09092040", _dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None);
             List<Fodselsnummer> options = FodselsnummerCalculator.getManyFodselsnummerForDate(date);
-            Assert.Equal(0, options.Count);
+            Assert.Empty(options);
         }
 
         [Fact]
