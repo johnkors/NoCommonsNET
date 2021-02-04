@@ -1,4 +1,4 @@
-name: Release
+name: PreRelease
 
 on:
   workflow_dispatch:
