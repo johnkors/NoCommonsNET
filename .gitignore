@@ -283,3 +283,5 @@ __pycache__/
 .vs/
 .dotnetcli/
 scripts/
+.DS_Store
+releases/

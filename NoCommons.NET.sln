@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons", "NoCommons\NoCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoCommons.Tests", "NoCommons.Tests\NoCommons.Tests.csproj", "{14D5C0E4-0275-4F28-B978-21401CC61506}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{5F3B8579-1D0D-403E-B79B-13515D3578D0}"
+ProjectSection(SolutionItems) = preProject
+	.github\FUNDING.yml = .github\FUNDING.yml
+	.github\workflows\CI.yml = .github\workflows\CI.yml
+	.github\workflows\Release.yml = .github\workflows\Release.yml
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
