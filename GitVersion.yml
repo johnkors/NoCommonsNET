@@ -5,10 +5,10 @@ branches:
     tag: ""
   feature:
     regex: ^features?[/-]|(?!^master$|^(hotfix|bugfix)(es)?[/-]|^support[/-]|(^(pull|pull\-requests|pr)[/-]))(^.*$)
-    tag: ""
+    tag: "feature"
   pull-request:
-    tag: ""
+    tag: "pull"
   hotfix:
     regex: ^(hotfix|bugfix)(es)?[/-]
     increment: Inherit
-    tag: ""
+    tag: "bug"
