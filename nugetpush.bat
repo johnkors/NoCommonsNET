@@ -1,1 +1,0 @@
-nuget push nocommons/build/NoCommons.1.2.6.nupkg -Source https://www.nuget.org/api/v2/package -ApiKey %nugetorgapikey%
