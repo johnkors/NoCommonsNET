@@ -26,13 +26,6 @@ jobs:
         with:
           useConfigFile: true
       - name: Pack
-        run: dotnet pack /p:Version=${{ steps.gitversion.outputs.NuGetVersionV2 }}-${{ steps.gitversion.outputs.ShortSha }} /p:InformationalVersion=${{ steps.gitversion.outputs.informationalVersion }} /p:PackageReleaseNotes="https://github.com/johnkors/NoCommonsNET/releases/tag/${{ steps.gitversion.outputs.NuGetVersionV2 }}" -o ./releases
+        run: dotnet pack source /p:Version=${{ steps.gitversion.outputs.NuGetVersionV2 }}-${{ steps.gitversion.outputs.ShortSha }} /p:InformationalVersion=${{ steps.gitversion.outputs.informationalVersion }} /p:PackageReleaseNotes="https://github.com/$GITHUB_REPOSITORY/releases/tag/${{ steps.gitversion.outputs.NuGetVersionV2 }}" -o ./releases
       - name: Publish
         run: dotnet nuget push ./releases/**/*.nupkg -k=${{ secrets.NUGETORGAPIKEY }} -s=nuget.org
-      - run: git log $(git describe --tags --abbrev=0)..HEAD --oneline
-      - name: Log commit messages since last release
-        id: releasenotes
-        run: |
-          echo 'RELEASE_NOTES<<EOF' >> $GITHUB_ENV
-          git log $(git describe --tags --abbrev=0)..HEAD --oneline >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
