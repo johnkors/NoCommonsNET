@@ -6,6 +6,7 @@
     <Authors>John Korsnes</Authors>
     <Description>Hjelpeklasser for validering og generering av data tilknyttet norske domener.</Description>
     <PackageIcon>norge.512x512.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>norway norwegian kontonummer fodselsnummer kidnummer organisasjonsnummer validation generators calculator holidays easter christmas</PackageTags>
     <PackageProjectUrl>https://github.com/johnkors/NoCommonsNET</PackageProjectUrl>
     <License>https://github.com/johnkors/NoCommonsNET/blob/master/LICENSE</License>
@@ -13,5 +14,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="Images\norge.512x512.png" Pack="true" PackagePath="" />
+    <None Include="../../README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 </Project>
