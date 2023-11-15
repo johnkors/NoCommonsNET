@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net46;net45</TargetFrameworks>
+    <TargetFrameworks>net8.0;net7.0</TargetFrameworks>
     <AssemblyName>NoCommons</AssemblyName>
     <PackageId>NoCommons</PackageId>
     <Authors>John Korsnes</Authors>

@@ -38,11 +38,7 @@ namespace NoCommons.Person
          * @return A List with Fodelsnummer instances
          */
         public static List<Fodselsnummer> GetManyFodselsnummerForDate(DateTime date, bool dNumber = false)
-        {
-            if (date == null)
-            {
-                throw new ArgumentException();
-            }
+        {         
             var century = GetCentury(date);
             
             var dateString = date.ToString("ddMMyy");
