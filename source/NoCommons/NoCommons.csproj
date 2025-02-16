@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
     <AssemblyName>NoCommons</AssemblyName>
     <PackageId>NoCommons</PackageId>
     <Authors>John Korsnes</Authors>
@@ -13,7 +15,7 @@
     <RepositoryUrl>https://github.com/johnkors/NoCommonsNET</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Images\norge.512x512.png" Pack="true" PackagePath="" />
-    <None Include="../../README.md" Pack="true" PackagePath="" />
+    <None Include="Images\norge.512x512.png" Pack="true" PackagePath=""/>
+    <None Include="../../README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 </Project>

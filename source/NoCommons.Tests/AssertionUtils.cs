@@ -1,16 +1,10 @@
-using System;
-using Xunit;
+namespace NoCommons.Tests;
 
-namespace NoCommons.Tests
+public class AssertionUtils
 {
-    public class AssertionUtils
+    public static void AssertMessageContains(ArgumentException argumentException, string errorSyntax)
     {
-        public static void AssertMessageContains(ArgumentException argumentException, string errorSyntax)
-        {
-            bool containsText = argumentException.Message.Contains(errorSyntax);
-            Assert.True(containsText);
-        }
-
-        
+        bool containsText = argumentException.Message.Contains(errorSyntax);
+        Assert.True(containsText);
     }
 }
