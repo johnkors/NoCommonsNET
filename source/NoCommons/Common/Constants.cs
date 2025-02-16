@@ -1,7 +1,6 @@
-namespace NoCommons.Common
+namespace NoCommons.Common;
+
+public static class Constants
 {
-    public static class Constants
-    {
-        public static char DOT = '.';
-    }
+    public static char DOT = '.';
 }

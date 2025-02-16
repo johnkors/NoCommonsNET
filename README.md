@@ -8,6 +8,6 @@ NoCommonsNET
 
 Port av NoCommons-biblioteket for .NET
 
- * https://github.com/bekkopen/NoCommons
+* https://github.com/bekkopen/NoCommons
 
- Sample apps can be found [in the samples repo](https://github.com/johnkors/NoCommonsNET.Samples)
+Sample apps can be found [in the samples repo](https://github.com/johnkors/NoCommonsNET.Samples)

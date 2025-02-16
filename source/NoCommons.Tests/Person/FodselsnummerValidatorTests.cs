@@ -1,159 +1,156 @@
-using System;
-using Xunit;
 using NoCommons.Person;
 
-namespace NoCommons.Tests.Person
+namespace NoCommons.Tests.Person;
+
+public class FodselsnummerValidatorTests
 {
-    public class FodselsnummerValidatorTests
+    [Fact]
+    public void testInvalidFodselsnummerWrongLength()
     {
-        [Fact]
-        public void testInvalidFodselsnummerWrongLength()
+        try
         {
-            try
-            {
-                FodselsnummerValidator.ValidateSyntax("0123456789");
-                Assert.True(false);
-            }
-            catch (ArgumentException e)
-            {
-                AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_SYNTAX);
-            }
+            FodselsnummerValidator.ValidateSyntax("0123456789");
+            Assert.True(false);
         }
+        catch (ArgumentException e)
+        {
+            AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_SYNTAX);
+        }
+    }
 
-        [Fact]
-        public void testInvalidFodselsnummerNotDigits()
+    [Fact]
+    public void testInvalidFodselsnummerNotDigits()
+    {
+        try
         {
-            try
-            {
-                FodselsnummerValidator.ValidateSyntax("abcdefghijk");
-                Assert.True(false);
-            }
-            catch (ArgumentException e)
-            {
-                AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_SYNTAX);
-            }
+            FodselsnummerValidator.ValidateSyntax("abcdefghijk");
+            Assert.True(false);
         }
+        catch (ArgumentException e)
+        {
+            AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_SYNTAX);
+        }
+    }
 
-        [Fact]
-        public void testInvalidIndividnummer()
+    [Fact]
+    public void testInvalidIndividnummer()
+    {
+        try
         {
-            try
-            {
-                FodselsnummerValidator.validateIndividnummer("01015780000");
-                Assert.True(false);
-            }
-            catch (ArgumentException e)
-            {
-                AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_INDIVIDNUMMER);
-            }
+            FodselsnummerValidator.validateIndividnummer("01015780000");
+            Assert.True(false);
         }
+        catch (ArgumentException e)
+        {
+            AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_INDIVIDNUMMER);
+        }
+    }
 
-        [Fact]
-        public void testInvalidDateMonthMax()
+    [Fact]
+    public void testInvalidDateMonthMax()
+    {
+        try
         {
-            try
-            {
-                FodselsnummerValidator.validateDate("01130400000");
-                Assert.True(false);
-            }
-            catch (ArgumentException e)
-            {
-                AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_DATE);
-            }
+            FodselsnummerValidator.validateDate("01130400000");
+            Assert.True(false);
         }
+        catch (ArgumentException e)
+        {
+            AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_DATE);
+        }
+    }
 
-        [Fact]
-        public void testInvalidDateMonthMin()
+    [Fact]
+    public void testInvalidDateMonthMin()
+    {
+        try
         {
-            try
-            {
-                FodselsnummerValidator.validateDate("01000400000");
-                Assert.True(false);
-            }
-            catch (ArgumentException e)
-            {
-                AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_DATE);
-            }
+            FodselsnummerValidator.validateDate("01000400000");
+            Assert.True(false);
         }
+        catch (ArgumentException e)
+        {
+            AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_DATE);
+        }
+    }
 
-        [Fact]
-        public void testInvalidDateDayMin()
+    [Fact]
+    public void testInvalidDateDayMin()
+    {
+        try
         {
-            try
-            {
-                FodselsnummerValidator.validateDate("00120467800");
-                Assert.True(false);
-            }
-            catch (ArgumentException e)
-            {
-                AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_DATE);
-            }
+            FodselsnummerValidator.validateDate("00120467800");
+            Assert.True(false);
         }
+        catch (ArgumentException e)
+        {
+            AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_DATE);
+        }
+    }
 
-        [Fact]
-        public void testInvalidDateDayMax()
+    [Fact]
+    public void testInvalidDateDayMax()
+    {
+        try
         {
-            try
-            {
-                FodselsnummerValidator.validateDate("32120400000");
-                Assert.True(false);
-            }
-            catch (ArgumentException e)
-            {
-                AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_DATE);
-            }
+            FodselsnummerValidator.validateDate("32120400000");
+            Assert.True(false);
         }
+        catch (ArgumentException e)
+        {
+            AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_DATE);
+        }
+    }
 
-        [Fact]
-        public void testInvalidDateLeapDay()
+    [Fact]
+    public void testInvalidDateLeapDay()
+    {
+        try
         {
-            try
-            {
-                FodselsnummerValidator.validateDate("29020700000");
-                Assert.True(false);
-            }
-            catch (ArgumentException e)
-            {
-                AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_DATE);
-            }
+            FodselsnummerValidator.validateDate("29020700000");
+            Assert.True(false);
         }
+        catch (ArgumentException e)
+        {
+            AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_DATE);
+        }
+    }
 
-        [Fact]
-        public void testInvalidFodselsnummerChecksum()
+    [Fact]
+    public void testInvalidFodselsnummerChecksum()
+    {
+        try
         {
-            try
-            {
-                FodselsnummerValidator.validateChecksums("01010101010");
-                Assert.True(false);
-            }
-            catch (ArgumentException e)
-            {
-                AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_CHECKSUM);
-            }
+            FodselsnummerValidator.validateChecksums("01010101010");
+            Assert.True(false);
         }
+        catch (ArgumentException e)
+        {
+            AssertionUtils.AssertMessageContains(e, FodselsnummerValidator.ERROR_INVALID_CHECKSUM);
+        }
+    }
 
-        [Fact]
-        public void testValidLeapDay()
-        {
-            Assert.True(FodselsnummerValidator.IsValid("29029633310"));
-        }
+    [Fact]
+    public void testValidLeapDay()
+    {
+        Assert.True(FodselsnummerValidator.IsValid("29029633310"));
+    }
 
-        [Fact]
-        public void testIsValid()
-        {
-            Assert.True(FodselsnummerValidator.IsValid("01010101006"));
-        }
+    [Fact]
+    public void testIsValid()
+    {
+        Assert.True(FodselsnummerValidator.IsValid("01010101006"));
+    }
 
-        [Fact]
-        public void testDNumberIsValid()
-        {
-            Assert.True(FodselsnummerValidator.IsValid("47086303651"));
-        }
+    [Fact]
+    public void testDNumberIsValid()
+    {
+        Assert.True(FodselsnummerValidator.IsValid("47086303651"));
+    }
 
-        [Fact]
-        public void testGetDNumber()
-        {
-            FodselsnummerValidator.getFodselsnummer("47086303651");
-        }
+    [Fact]
+    public void testGetDNumber()
+    {
+        FodselsnummerValidator.getFodselsnummer("47086303651");
     }
 }

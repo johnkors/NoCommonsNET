@@ -1,63 +1,29 @@
-﻿using System;
+﻿namespace NoCommons.Common;
 
-namespace NoCommons.Common
+public abstract record StringNumber(string value)
 {
-    public abstract class StringNumber {
+    public string GetValue()
+    {
+        return value;
+    }
 
-        private readonly string value;
+    public int GetAt(int i)
+    {
+        return GetValue()[i] - '0';
+    }
 
-        protected StringNumber(string value) {
-            this.value = value;
-        }
+    public override string ToString()
+    {
+        return GetValue();
+    }
 
-        public string GetValue() {
-            return value;
-        }
+    public int GetLength()
+    {
+        return GetValue().Length;
+    }
 
-        public int GetAt(int i) {
-            return GetValue()[i] - '0';
-        }
-
-        public override string ToString() {
-            return GetValue();
-        }
-
-        public override int GetHashCode() {
-            const int prime = 31;
-            int result = 1;
-            result = prime * result + ((value == null) ? 0 : value.GetHashCode());
-            return result;
-        }
-
-        public override bool Equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null) {
-                return false;
-            }
-            if (GetType() != obj.GetType()) {
-                return false;
-            }
-            var other = (StringNumber) obj;
-            if (value == null) {
-                if (other.value != null) {
-                    return false;
-                }
-            } else if (!value.Equals(other.value)) {
-                return false;
-            }
-            return true;
-        }
-
-        public int GetLength() {
-            return GetValue().Length;
-        }
-
-        public int GetChecksumDigit() {
-            return GetAt(GetLength()-1);
-        }
-
- 
+    public int GetChecksumDigit()
+    {
+        return GetAt(GetLength() - 1);
     }
 }

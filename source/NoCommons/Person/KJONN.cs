@@ -1,9 +1,8 @@
-namespace NoCommons.Person
+namespace NoCommons.Person;
+
+public enum KJONN
 {
-    public enum KJONN
-    {
-        MANN,
-        KVINNE,
-        BEGGE
-    }
+    MANN,
+    KVINNE,
+    BEGGE
 }
